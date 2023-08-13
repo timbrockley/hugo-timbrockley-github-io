@@ -1,0 +1,28 @@
+{{- define "header" -}}
+{{- end -}}
+{{ define "main" }}
+
+    <div id="main" data-nosnippet>
+
+		<h2>Archive</h2>
+	
+		<div id="grouped">
+            {{- range .Site.Pages.GroupByDate "2006"  -}}
+                {{- if ge .Key 1000 -}}
+                    <h3 id="{{- .Key -}}">{{- .Key -}}</h3>
+                    <ul>
+                    {{- range where .Pages ".Kind" "page" -}}
+                        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+                    {{- end -}}	
+                    </ul>
+                {{- end -}}		
+            {{- end -}}		
+		</div>
+
+    </div>
+
+{{- end -}}
+{{- define "sidebar" -}}
+{{- end -}}
+{{- define "footer" -}}
+{{- end -}}

@@ -1,0 +1,67 @@
+<div id="sidebar" data-nosnippet>
+
+    <!-- Categories -->
+    <nav>
+        <h4><a href="/categories">Categories</a></h4>
+        <select onchange="window.document.location.href=this.options[this.selectedIndex].value;">
+            <option>&nbsp;</option>
+            {{- if isset .Site.Taxonomies "categories" -}}
+                {{- if not (eq (len .Site.Taxonomies.categories) 0) -}}
+                    {{- range $category_name, $category_items := .Site.Taxonomies.categories -}}
+                        <optgroup label="{{$category_name}}">
+                        {{- range $category_items -}}
+                            <option value="{{.Permalink}}">{{.Title}}</option>
+                        {{- end -}}
+                        </optgroup>
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+        </select>
+    </nav>
+    <!-- Categories -->
+
+    <br>
+
+    <!-- Tags -->
+    <nav>
+        <h4><a href="/tags">Tags</a></h4>
+        <select onchange="window.document.location.href=this.options[this.selectedIndex].value;">
+            <option>&nbsp;</option>
+            {{- if isset .Site.Taxonomies "tags" -}}
+                {{- if not (eq (len .Site.Taxonomies.tags) 0) -}}
+                    {{- range $tag_name, $tag_items := .Site.Taxonomies.tags -}}
+                        <optgroup label="{{$tag_name}}">
+                        {{- range $tag_items -}}
+                            <option value="{{.Permalink}}">{{.Title}}</option>
+                        {{- end -}}
+                        </optgroup>
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+        </select>
+    </nav>
+    <!-- Tags -->
+
+    <br>
+    
+    <!-- Archive -->
+    <nav>
+        <h4><a href="/archive" style="text-decoration: none;">Archive</a></h4>
+        {{- range .Site.Pages.GroupByDate "2006"  -}}
+            {{- if gt .Key 1 -}}
+                <a href="/archive#{{.Key}}">{{.Key}}</a>
+                <br>
+            {{- end -}}		
+        {{- end -}}	
+    </nav>
+    <!-- Archive -->
+
+    <br>
+
+    <!-- Contact Us -->
+    <nav id="nav_contact_us" style="padding-top: 20px;">
+        <a id="mailto" href="mailto:webmaster_blog@timbrockley.co.uk" target="_blank">Contact Us</a>
+    </nav>
+    <!-- Contact Us -->
+
+</div>

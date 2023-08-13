@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="robots" content="noarchive">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="canonical" href="{{ .Permalink }}"> 
+
+	<link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    {{- if .IsHome -}}
+
+        {{- if .Site.Title -}}
+            <title>{{.Site.Title}}</title>
+        {{- end -}}
+        {{- if .Site.Params.description -}}
+            <meta name="description" content="{{.Site.Params.description}}">
+        {{- end -}}
+        {{- if .Site.Params.tags -}}
+            <meta name="keywords" content="{{ with .Site.Params.tags }}{{ delimit . `, `}}{{ end }}">
+        {{- end -}}
+    
+    {{- else -}}
+
+        {{- if .Title -}}
+            {{- if .Site.Title -}}
+                <title>{{.Title}} | {{.Site.Title}}</title>
+            {{- else -}}
+                <title>{{.Title}}</title>
+            {{- end -}}
+        {{- end -}}
+        {{- if .Description -}}
+            <meta name="description" content="{{.Description}}">
+        {{- end -}}
+        {{- if .Params.tags -}}
+            <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . `, `}}{{ end }}">
+        {{- end -}}
+        
+    {{- end -}}
+
+    <script src="/js/blog.js"></script>
+  
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:image" content="{{ absURL `/images/blog1_icon_200x200.png` }}">
+    <meta property="og:image:alt" content="{{ .Site.Title }}">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    
+
+    {{ partial "json-ld.html" . }}
+    
+
+</head>
+
+<body>
+
+    <div id="header" data-nosnippet>
+
+        <!-- <span id="header_text">
+            <a href="/">
+                <img src="/images/home_white_200x200.png" width="20px" height="20px" alt="">
+                Home
+            </a>
+        </span>        -->
+
+        <div id="menubar">
+
+            <a href="/">
+                <div class="menubar_home_link">
+                    <img src="/images/home_white_200x200.png" alt="">
+                    Home
+                </div>
+            </a>
+
+            <span class="dropdown_menu">
+                <a href="/categories"><div  class="dropdown_menu_title"><img src="/images/categories_200x200.png" alt="">Categories</div></a>
+                <span class="dropdown_menu_item">
+                    {{- if isset .Site.Taxonomies "categories" -}}
+                        {{- if not (eq (len .Site.Taxonomies.categories) 0) -}}
+                            {{- range $category_name, $category_items := .Site.Taxonomies.categories -}}
+                                <a href="/categories/{{$category_name}}">{{$category_name}}</a>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                </span>
+            </span>
+
+            <!-- <span class="dropdown_menu">
+                <a href="/tags"><div  class="dropdown_menu_title"><img src="/images/tags_200x200.png" alt="">Tags</div></a>
+                <span class="dropdown_menu_item">
+                    {{- if isset .Site.Taxonomies "tags" -}}
+                        {{- if not (eq (len .Site.Taxonomies.tags) 0) -}}
+                            {{- range $tag_name, $tag_items := .Site.Taxonomies.tags -}}
+                                <a href="/tags/{{$tag_name}}">{{$tag_name}}</a>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                </span>
+            </span> -->
+
+            <span class="dropdown_menu">
+                <a href="/archive"><div  class="dropdown_menu_title"><img src="/images/archive_245x200.png" alt="">Archive</div></a>
+                <span class="dropdown_menu_item">
+                    {{- range .Site.Pages.GroupByDate "2006"  -}}
+                        {{- if gt .Key 1 -}}
+                            <a href="/archive#{{.Key}}">{{.Key}}</a>
+                        {{- end -}}		
+                    {{- end -}}	
+                </span>
+            </span>
+
+        </div>
+
+        <div id="header_site_title">
+            <a href="#" onclick="window.scrollTo(0,0); return false;"><img src="/images/blog1_icon_white_200x200.png" style="width:20px;height:20px;margin-top:5px;margin-bottom:5px;margin-left:2px;margin-right:8px;float:left;" alt=""></a>
+            <a href="/">{{.Site.Title}}</a>
+        </div>       
+
+    </div>
