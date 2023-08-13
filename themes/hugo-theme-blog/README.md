@@ -1,11 +1,9 @@
-## Hugo Theme Example
+## Hugo Blog Theme
 
 
   - [Key Features](#key-features)
   - [Configuration (config.toml)](#configuration-configtoml)
   - [Front Matter Variables](#front-matter)
-  - [To Do](#to-do)
-  - [Known Issues](#known-issues)
 
 
 ### Key Features
@@ -20,7 +18,7 @@
 **Required**
 
 ```toml
-theme = "hugo-theme-example"
+theme = "hugo-theme-blog"
 ```
 **Recommend Options (set your own values)**
 
@@ -30,7 +28,7 @@ canonifyURLs = false
 relativeURLs = false
 
 baseURL = "http://example.org/"
-title = "Hugo Example Site"
+title = "Hugo Blog Site"
 ```
 (Using different URL settings may result in site links not working properly).
 
@@ -85,21 +83,5 @@ Front matter values for title, description, date and image are displayed inside 
 Categories and tags are used in navigation panes on site sidebar.
 
 _(Images should be correctly sized to fit in tiles on list pages)._
-
-
-### To Do
-* add social links options
-* add google analytics option
-* create a custom 404 page
-* set font size
-* enhanced sitemap / search options
-
-
-### Known Issues
-* long titles may be cropped in tiles and sidebar select options
-* images not resized to fit tiles
-* multiple blank lines / whitespace in generated code
-* tags/categories/sections => text alignment is a little untidy
-* markdown highlighting appears different to how it appears on other websites
 
 

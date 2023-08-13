@@ -1,2 +1,2 @@
 # timbrockley.github.io
-Hugo Website
+Hugo Blog Website

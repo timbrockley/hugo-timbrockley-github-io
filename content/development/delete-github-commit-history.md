@@ -10,8 +10,6 @@ tags: [github, github-commit-history, github-repository]
 
 To delete all existing commits and recreate an initial commit.
 
-NB. Some repositories use **main** instead of **master** as a branch name.
-
 ### First Method
 
 ```
@@ -31,13 +29,13 @@ git add -A
 git commit -am "initial commit"
 
 # Delete the old branch:
-git branch -D master
+git branch -D main
 
-# Rename the temporary branch to master:
-git branch -m master
+# Rename the temporary branch to main:
+git branch -m main
 
 # Finally, force update to the remote repository:
-git push -f origin master
+git push -f origin main
 ```
 
 If this doesn't work, try the next method below.
@@ -64,6 +62,6 @@ git remote -v
 git add --all
 git commit -am "initial commit"
 
-# Force push update to the master branch of our project repository:
-git push -f origin master
+# Force push update to the main branch of our project repository:
+git push -f origin main
 ```

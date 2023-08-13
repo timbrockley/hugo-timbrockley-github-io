@@ -1,7 +1,7 @@
 
 title = "Tim Brockley Blog"
 
-baseURL = "https://hugo.timbrockley.co.uk/"
+baseURL = "https://blog.timbrockley.co.uk/"
 
 theme = "hugo-theme-blog"
 
