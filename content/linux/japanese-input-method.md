@@ -82,8 +82,9 @@ While in Mozc mode right-click and select the desired input method (hiragana/kat
 
 ![composition-mode](/images/linux/japanese-input-method/linux_mozc_menu_composition_mode.png)
 
-<u>Keyboard Shortcuts</u>
+## Keyboard Shortcuts
 
+| Keyboard Shortcut | Description |
 |:--|:--|
 | ctrl + space | Convert to Hiragana |
 | F6 | Convert to Hiragana |

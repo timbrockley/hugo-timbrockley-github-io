@@ -2,8 +2,8 @@
 title: "Markdown Cheatsheet"
 description: "A quick guide to markdown which is used for Hugo content."
 image: "/images/development/markdown-cheatsheet/markdown_logo_200x200.png"
-categories: [ "development","documentation","development","hugo" ]
-tags: [ "development","documentation","hugo","markdown" ]
+categories: [ "development", "hugo" ]
+tags: [ "development", "documentation", "hugo", "markdown" ]
 date: 2020-08-10T16:31:32+01:00
 draft: false
 ---
