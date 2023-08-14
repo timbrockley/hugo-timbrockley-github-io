@@ -4,8 +4,8 @@ title: "Index Form"
 description: "What is Index Form ? Index form is a way of expressing a number that is multiplied by itself."
 date: 2020-12-25
 image: "/images/maths/maths1_200x200.png"
-categories: [maths]
-tags: [index-form]
+categories: ["maths"]
+tags: ["index-form"]
 ---
 ## What is Index Form ?
 Index form is a way of expressing a number that is multiplied by itself.

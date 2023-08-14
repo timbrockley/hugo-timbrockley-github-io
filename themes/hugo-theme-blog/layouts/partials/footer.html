@@ -9,7 +9,7 @@
                 <span class="taxonomy">Categories:</span>
                 {{- range .Params.categories -}}
                 &nbsp;&nbsp;
-                    <a href="/categories/{{.}}">{{.}}</a> 
+                    <a href="/categories/{{ replace . ` ` `-`}}">{{ replace . ` ` `-`}}</a> 
                 {{- end -}}
                 <br>
             {{- end -}}
@@ -21,7 +21,7 @@
                 <span class="taxonomy">Tags:</span>
                 {{- range .Params.tags -}}
                     &nbsp;&nbsp;
-                    <a href="/tags/{{.}}">{{.}}</a>
+                    <a href="/tags/{{ replace . ` ` `-`}}">{{ replace . ` ` `-`}}</a>
                 {{- end -}}
             {{- end -}}
 

@@ -84,8 +84,14 @@
 					{{- end -}}
 				{{- end -}} -->
 				{{- $section := `` -}}
-				{{- if ne .File.Dir `/` -}}
-					{{- $section = ( replace .File.Dir `/` `_` ) | strings.TrimRight `_` -}}
+				{{- $section_href := `` -}}
+				{{- if and (ne .File.Dir `/`) -}}
+					{{/* sections with multiple slashes don't show in lists */}}
+					{{- if eq (strings.Count `/` .File.Dir) 1 -}}
+						{{- $section = ( replace .File.Dir `/` `_` ) | strings.TrimRight `_` -}}
+						{{- $section = replace $section ` ` `-` -}}
+						{{- $section_href = ( replace .File.Dir ` ` `-` ) | strings.TrimRight `_` -}}
+					{{- end -}}
 				{{- end -}}
 				<!------------------------------------------------------------>
 				{{- $date := "" -}}
@@ -98,12 +104,12 @@
 
 					<p class="tile_image"><a href="{{.Permalink}}"><img src="{{$image}}" alt=""></a></p>
 
-					<p class="tile_title"><a href="{{.Permalink}}">{{- substr $title 0 30 -}}</a></p>
+					<p class="tile_title"><a href="{{.Permalink}}">{{$title}}</a></p>
 					
 					<p class="tile_date">
 						{{$date}}
 						{{- if $section -}}
-							<a href="/{{$section}}" class="tile_section">{{$section}}</a>
+							<a href="/{{$section_href}}" class="tile_section">{{$section}}</a>
 						{{- end -}}
 					</p>
 
