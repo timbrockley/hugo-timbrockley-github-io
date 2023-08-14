@@ -184,7 +184,6 @@
         <div id="header_site_title">
             <!-- <a href="#" onclick="window.scrollTo(0,0); return false;"> -->
             <!-- <img src="/images/blog1_icon_white_200x200.png" style="width:20px;height:20px;margin-top:5px;margin-bottom:5px;margin-left:2px;margin-right:8px;float:left;" alt=""> -->
-
             {{- if .IsHome -}}
                 {{ .Site.Title }}
             {{- else if .IsSection -}}
@@ -196,7 +195,7 @@
             {{- else if eq .Kind `taxonomy` -}}
                 {{ title .Type }}
             {{- else if eq .Kind `term` -}}
-                {{ .Data.Singular }}: {{ .LinkTitle }}
+                {{ title ( replace ( replace .LinkTitle `_` ` `)  `-` ` ` ) }}
             {{- else if eq .Kind `page` -}}
                 {{ .Title }}
             {{- end -}}
