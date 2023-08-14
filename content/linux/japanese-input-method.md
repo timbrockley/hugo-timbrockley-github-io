@@ -71,7 +71,9 @@ Click "OK"
 
 To change input methods first click inside any input box.
 
-<u>Fcitx Keyboard Icon</u>
+{{< rawhtml >}}
+<span style="text-decoration:underline;">Fcitx Keyboard Icon</span>
+{{< /rawhtml >}}
 
 Switch between normal keyboard and Mozc keyboard by clikcing the Fcitx keyboard icon in the application panel.
 

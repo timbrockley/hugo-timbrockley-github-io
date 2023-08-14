@@ -8,61 +8,47 @@ categories: [linux]
 tags: [linux, linux-command-line]
 ---
 ## bindfs
-
-{{< rawhtml >}}
-<a href="https://bindfs.org/docs/bindfs.1.html" target="_blank">bindfs - mount --bind in user-space</a>
+{{< rawhtml >}}<a href="https://bindfs.org/docs/bindfs.1.html" target="_blank">bindfs - mount --bind in user-space</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-bindfs [<i>OPTIONS</i>] <i>DIR</i> <i>MOUNT_POINT</i>
-
-<u>Examples</u>
+bindfs [OPTIONS] DIR MOUNT_POINT
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 bindfs -o force-user=www-data,force-group=www-data,perms=0550,nonempty /www /var/www
 bindfs -o force-user=www-data,force-group=www-data,perms=0770,nonempty /www/data /var/www/data
 ```
 
 
 ## find
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/find" target="_blank">find - search for files in a directory hierarchy</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/find" target="_blank">find - search for files in a directory hierarchy</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-find <i>DIR</i> -type f -iname '<i>FILE_PATTERN</i>'
-
-<u>Examples</u>
+find DIR -type f -iname 'FILE_PATTERN'
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 find test -type f -iname 'x*'
 find test -type f -iname 'x*' -o -iname 'y*'
 
 find test -type f -iname '*[*' -a -not -iname '*]*'
-
-<u>Convert files recursively</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Convert files recursively</span>{{< /rawhtml >}}
 find . -type f -print0 | xargs -0 dos2unix
 ```
 
 
 ## git
-
-{{< rawhtml >}}
-<a href="https://git-scm.com/docs" target="_blank">git --fast-version-control</a>
+{{< rawhtml >}}<a href="https://git-scm.com/docs" target="_blank">git --fast-version-control</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-<u>Email Address & Username</u>
-git config --global user.email "<i>you@example.com</i>"
-git config --global user.name "<i>Your Name</i>"
-
-<u>If using a repo setup in windows and then running git on linux</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Email Address & Username</span>{{< /rawhtml >}}
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+{{< rawhtml >}}<span style="text-decoration:underline">If using a repo setup in windows and then running git on linux</span>{{< /rawhtml >}}
 git config --global core.autocrlf input
-
-<u>Examples</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 git status
 
 git add .
@@ -76,20 +62,16 @@ git gui
 
 
 ## grep
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/grep" target="_blank">grep, egrep, fgrep - print lines that match patterns</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/grep" target="_blank">grep, egrep, fgrep - print lines that match patterns</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-grep [<i>OPTION...</i>] <i>PATTERNS</i> [<i>FILE...</i>]
-grep [<i>OPTION...</i>] -e <i>PATTERNS ...</i> [<i>FILE...</i>]
-grep [<i>OPTION...</i>] -f <i>PATTERN_FILE ...</i> [<i>FILE...</i>]
-
-<u>Examples</u>
-grep -rnw '<i>/path/</i>' -e '<i>TEXT_TO_FIND</i>'
+grep [OPTION...] PATTERNS [FILE...]
+grep [OPTION...] -e PATTERNS ... [FILE...]
+grep [OPTION...] -f PATTERN_FILE ... [FILE...]
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
+grep -rnw '/path/' -e 'TEXT_TO_FIND'
 
 -r or -R is recursive,
 -n is line number, and
@@ -99,52 +81,40 @@ grep -rnw '<i>/path/</i>' -e '<i>TEXT_TO_FIND</i>'
 
 
 ## gzip
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/gzip" target="_blank">gzip, gunzip, zcat - compress or expand files</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/gzip" target="_blank">gzip, gunzip, zcat - compress or expand files</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-gzip -stdout --best <i>FILENAME</i> > <i>FILENAME</i>.gz
-
-<u>Examples</u>
+gzip -stdout --best FILENAME > FILENAME.gz
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 gzip -stdout --best partclone.img > partclone.img.gz
 ```
 
 
 ## ln
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/ln" target="_blank">ln - make links between files</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/ln" target="_blank">ln - make links between files</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-ln -s <i>TARGET</i> <i>LINK_NAME</i>
-
-<u>Examples</u>
+ln -s TARGET LINK_NAME
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 ln -s /media/data/downloads ~/downloads
 ```
 
 
 ## mount
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/8/mount" target="_blank">mount - mount a filesystem</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/8/mount" target="_blank">mount - mount a filesystem</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-mount [-fnrsvw] [-o <i>OPTION</i>[,<i>OPTION</i>]...] <i>DEVICE</i>|<i>DIR</i>
+mount [-fnrsvw] [-o OPTION[,OPTION]...] DEVICE|DIR
 
 -o options
 -t filesystem type
-
-<u>Examples</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 mount --type=vfat -o umask=007,uid=0,gid=500 /dev/sda1 /media/fat
 mount -t ntfs-3g -o remove_hiberfile /dev/sda1 /media/ntfs
 mount -o uid=0,gid=500,umask=007,noatime /dev/sda1 /media/data
@@ -153,15 +123,12 @@ mount -t cifs -o username=tim //192.168.0.1/data /mnt/data
 
 
 ## rsync
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/rsync" target="_blank">rsync -- a fast, versatile, remote (and local) file-copying tool</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/rsync" target="_blank">rsync -- a fast, versatile, remote (and local) file-copying tool</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-rsync [<i>-OPTIONS</i>] <i>SOURCE</i> <i>DESTINATION</i>
+rsync [-OPTIONS] SOURCE DESTINATION
 
 (trailing / important when referring to directory contents - see examples)
 
@@ -178,31 +145,23 @@ rsync [<i>-OPTIONS</i>] <i>SOURCE</i> <i>DESTINATION</i>
     --progress              show progress during transfer
     --exclude=PATTERN       exclude files matching PATTERN
 -n, --dry-run               perform a trial run with no changes made
-
-<u>Examples</u>
-
-<u>Mirror Source to Destination</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
+{{< rawhtml >}}<span style="text-decoration:underline">Mirror Source to Destination</span>{{< /rawhtml >}}
 rsync -raviphl --progress --exclude='.fuse*' --delete /media/H/backups/ /media/O/backups/
-
-<u>Update Destination from Source</u>
+{{< rawhtml >}}<span style="text-decoration:underline">Update Destination from Source</span>{{< /rawhtml >}}
 rsync -raviphl --progress --exclude='.fuse*' /media/N/backups/ /media/H/backups/
 ```
 
 
 ## tar
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/tar" target="_blank">tar - manual page for tar</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/tar" target="_blank">tar - manual page for tar</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-tar [<i>OPTION...</i>] [<i>FILENAME</i>]...
-
-<u>Examples</u>
-
-<u>backup</u>
+tar [OPTION...] [FILENAME]...
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
+{{< rawhtml >}}<span style="text-decoration:underline">backup</span>{{< /rawhtml >}}
 tar -cpvf home.tar /home
 tar -cpvzf home.tar.gz /home
 
@@ -214,82 +173,65 @@ find test -type f -iname '*[*' -a -not -iname '*]*' | tar -cpvzf test.tar.gz -T 
 
 tar -cpvzf - /home | openssl aes-256-ecb -out backup.tar.gz.aes
 tar -cpvzf - /home | gpg --encrypt --output=backup.tar.gz.gpg
-
-<u>restore</u>
+{{< rawhtml >}}<span style="text-decoration:underline">restore</span>{{< /rawhtml >}}
 tar -xpvf backup.tar
 tar -xpvzf backup.tar.gz
 
 openssl aes-256-ecb -d -in backup.tar.gz.aes|tar xpvzf -
 gpg --decrypt backup.tar.gz.gpg|tar xpvzf -
-
-<u>list contents</u>
+{{< rawhtml >}}<span style="text-decoration:underline">list contents</span>{{< /rawhtml >}}
 tar -tvf backup.tar.gz
 ```
 
 
 ## taskset
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/taskset" target="_blank">taskset - retrieve or set a process's CPU affinity</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/taskset" target="_blank">taskset - retrieve or set a process's CPU affinity</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
 taskset [options] mask command [arg]...
 taskset [options] -p [mask] pid
-
-<u>Examples</u>
-
-<u>get cpu affinity</u>
-taskset -cp <i>PID</i>
-
-<u>set cpu affinity</u>
-taskset -cp 1 <i>PID</i>
-taskset -cp 1,2 <i>PID</i>
-taskset -cp 0-3 <i>PID</i>
-
-<u>start process and set cpu affinity</u>
-taskset -c 1 <i>COMMAND</i>
-taskset -c 1,2 <i>COMMAND</i>
-taskset -c 0-3 <i>COMMAND</i>
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
+{{< rawhtml >}}<span style="text-decoration:underline">get cpu affinity</span>{{< /rawhtml >}}
+taskset -cp PID
+{{< rawhtml >}}<span style="text-decoration:underline">set cpu affinity</span>{{< /rawhtml >}}
+taskset -cp 1 PID
+taskset -cp 1,2 PID
+taskset -cp 0-3 PID
+{{< rawhtml >}}<span style="text-decoration:underline">start process and set cpu affinity</span>{{< /rawhtml >}}
+taskset -c 1 COMMAND
+taskset -c 1,2 COMMAND
+taskset -c 0-3 COMMAND
 ```
 
 
 ## uuid
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/uuid" target="_blank">uuid - Universally Unique Identifier Command-Line Tool</a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/uuid" target="_blank">uuid - Universally Unique Identifier Command-Line Tool</a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-uuid [-v <i>VERSION</i>] [-m] [-n <i>COUNT</i>] [-1] [-F <i>FORMAT</i>] [-o <i>FILENAME</i>] [<i>NAMESPACE_NAME</i>]
+uuid [-v VERSION] [-m] [-n COUNT] [-1] [-F FORMAT] [-o FILENAME] [NAMESPACE_NAME]
 
-uuid -d [-r] [-o <i>FILENAME</i>] <i>UUID</i>
-
-<u>Examples</u>
+uuid -d [-r] [-o FILENAME] UUID
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 uuid -v4
 ```
 
 
 ## zip
-
-{{< rawhtml >}}
-<a href="https://linux.die.net/man/1/zip" target="_blank">zip - package and compress (archive) files </a>
+{{< rawhtml >}}<a href="https://linux.die.net/man/1/zip" target="_blank">zip - package and compress (archive) files </a>
 <br>
 <br>
 {{< /rawhtml >}}
-
 ```
-zip backup.zip <i>FILENAME</i>
-zip backup.zip <i>FILENAME1</i> <i>FILENAME2</i>
+zip backup.zip FILENAME
+zip backup.zip FILENAME1 FILENAME2
 
-zip -r backup.zip <i>DIRNAME</i>
-zip -r backup.zip <i>DIRNAME1</i> <i>DIRNAME2</i>
-
-<u>Examples</u>
+zip -r backup.zip DIRNAME
+zip -r backup.zip DIRNAME1 DIRNAME2
+{{< rawhtml >}}<span style="text-decoration:underline">Examples</span>{{< /rawhtml >}}
 
 zip backup.zip .bashrc
 zip backup.zip .bashrc .bash_aliases
