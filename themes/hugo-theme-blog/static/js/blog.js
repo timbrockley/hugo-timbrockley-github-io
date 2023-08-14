@@ -1,3 +1,4 @@
+//--------------------------------------------------------------------------------
 //################################################################################
 /* mousetrap v1.4.6 craig.is/killing/mice */
 (function(J,r,f){function s(a,b,d){a.addEventListener?a.addEventListener(b,d,!1):a.attachEvent("on"+b,d)}function A(a){if("keypress"==a.type){var b=String.fromCharCode(a.which);a.shiftKey||(b=b.toLowerCase());return b}return h[a.which]?h[a.which]:B[a.which]?B[a.which]:String.fromCharCode(a.which).toLowerCase()}function t(a){a=a||{};var b=!1,d;for(d in n)a[d]?b=!0:n[d]=0;b||(u=!1)}function C(a,b,d,c,e,v){var g,k,f=[],h=d.type;if(!l[a])return[];"keyup"==h&&w(a)&&(b=[a]);for(g=0;g<l[a].length;++g)if(k=
@@ -10,21 +11,40 @@ unbind:function(a,b){return m.bind(a,function(){},b)},trigger:function(a,b){if(q
 b[c[e].seq]=1,x(c[e].callback,d,c[e].combo,c[e].seq)):g||x(c[e].callback,d,c[e].combo);c="keypress"==d.type&&I;d.type!=u||w(a)||c||t(b);I=g&&"keydown"==d.type}};J.Mousetrap=m;"function"===typeof define&&define.amd&&define(m)})(window,document);
 //################################################################################
 //--------------------------------------------------------------------------------
-function scroll_to_top(){ window.scrollTo(0,0); }
-function scroll_to_bottom(){ window.scrollTo(0,document.body.scrollHeight); }
+function scroll_to_top(){ window.scrollTo(0, 0); }
+function scroll_to_bottom(){ window.scrollTo(0, document.body.scrollHeight); }
 //------------------------------------------------------------
+function page_up(){ window.scrollBy(0, -500); }
+function page_down(){ window.scrollBy(0, 500); }
+//------------------------------------------------------------
+function up(){ window.scrollBy(0, -20); }
+function down(){ window.scrollBy(0, 20); }
+//--------------------------------------------------------------------------------
 //################################################################################
-//------------------------------------------------------------
+//--------------------------------------------------------------------------------
 function slideString(string){return string.split('').map(s=>slideChar(s)).join('');}
 function slideChar(chr){let charNum=chr.charCodeAt(0);if(charNum>=32&&charNum<=126){charNum-=32;charNum=94-charNum;charNum+=32;}return String.fromCharCode(charNum);}
 //--------------------------------------------------------------------------------
 //################################################################################
-//------------------------------------------------------------
+//--------------------------------------------------------------------------------
 window.onload=function()
 {
 	//------------------------------------------------------------
+	//############################################################
+	//------------------------------------------------------------
 	Mousetrap.bind(['home','ctrl+home'], function(e){ scroll_to_top(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
 	Mousetrap.bind(['end','ctrl+end'], function(e){ scroll_to_bottom(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
+	//------------------------------------------------------------
+	Mousetrap.bind(['pageup'], function(e){ page_up(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
+	Mousetrap.bind(['pagedown'], function(e){ page_down(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
+	//------------------------------------------------------------
+	/*
+		binding up / down keys may break navigation expected some users
+	*/
+	// Mousetrap.bind(['up'], function(e){ up(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
+	// Mousetrap.bind(['down'], function(e){ down(); if (e.preventDefault){ e.preventDefault(); }else{ e.returnValue = false; } });
+	//------------------------------------------------------------
+	//############################################################
 	//------------------------------------------------------------
 	let d1 = new Date();
 	let cymd = d1.getFullYear()*10000+(d1.getMonth()+1)*100+d1.getDate();
@@ -36,8 +56,12 @@ window.onload=function()
 	//------------------------------------------------------------
 	document.getElementById('mailto').href = mailtoLink;
 	//------------------------------------------------------------
+	//############################################################
+	//------------------------------------------------------------
 	if(document.querySelector('#tiles'))
 	{
+		//------------------------------------------------------------
+		//############################################################
 		//------------------------------------------------------------
 		let tiles = document.querySelectorAll('.tile');
 		//------------------------------------------------------------
@@ -56,8 +80,13 @@ window.onload=function()
 			//------------------------------------------------------------
 		}));
 		//------------------------------------------------------------
+		//############################################################
+		//------------------------------------------------------------
 	}
 	//------------------------------------------------------------
+	//############################################################
+	//------------------------------------------------------------
 };
-//------------------------------------------------------------
+//--------------------------------------------------------------------------------
 //################################################################################
+//--------------------------------------------------------------------------------

@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="robots" content="noarchive">
+    {{- if or (eq .Kind "home") (eq .Kind "page") -}}
+        <meta name="robots" content="noarchive">
+    {{- else -}}
+        <meta name="robots" content="noindex, nofollow, noarchive, noodp, noydir">
+    {{- end -}}
 
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="canonical" href="{{ .Permalink }}"> 
@@ -16,35 +20,91 @@
 	<link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/style.css">
     
-    {{- if .IsHome -}}
+    <!-- title / description / tags -->
 
+    <!-- homepage -->
+    {{- if .IsHome -}}
+    <!-- homepage -->
+    
+        <!-- title -->
         {{- if .Site.Title -}}
             <title>{{.Site.Title}}</title>
+        {{- else -}}
+            <title>Tim Brockley Blog</title>
         {{- end -}}
+        <!-- title -->
+
+        <!-- description -->
         {{- if .Site.Params.description -}}
             <meta name="description" content="{{.Site.Params.description}}">
         {{- end -}}
+        <!-- description -->
+
+        <!-- tags -->
         {{- if .Site.Params.tags -}}
             <meta name="keywords" content="{{ with .Site.Params.tags }}{{ delimit . `, `}}{{ end }}">
         {{- end -}}
-    
+        <!-- tags -->
+        
+    <!-- not homepage -->
     {{- else -}}
+    <!-- not homepage -->
 
-        {{- if .Title -}}
-            {{- if .Site.Title -}}
-                <title>{{.Title}} | {{.Site.Title}}</title>
-            {{- else -}}
-                <title>{{.Title}}</title>
-            {{- end -}}
+
+        <!-- title -->
+
+        {{- $site_title := `` -}}
+        {{- if .Site.Title -}}
+            {{- $site_title = printf ` - %s` .Site.Title -}}
         {{- end -}}
+
+        {{- if .IsSection -}}
+
+            {{- if eq .Type `archive` -}}
+                <title>{{ title .Type }}{{ $site_title }}</title>
+            {{- else -}}
+                <title>{{ title ( replace ( replace .Type `_` ` `)  `-` ` ` ) }}{{ $site_title }}</title>
+            {{- end -}}
+
+        {{- else if eq .Kind `taxonomy` -}}
+
+            <title>{{ title .Type }}{{ $site_title }}</title>
+
+        {{- else if eq .Kind `term` -}}
+
+            <title>{{ title ( replace ( replace .LinkTitle `_` ` `)  `-` ` ` ) }}{{ $site_title }}</title>
+
+        {{- else if eq .Kind `page` -}}
+
+            {{- $section := `` -}}
+            {{- $section_title := `` -}}
+            {{- if ne .File.Dir `/` -}}
+                {{- $section = ( replace .File.Dir `/` `_` ) | strings.TrimRight `_` -}}
+                {{- $section_title = title ( replace ( replace $section `_` ` `)  `-` ` ` ) -}}
+                {{- $section_title = printf " - %s" $section_title -}}
+            {{- end -}}
+
+            <title>{{ .Title }}{{ $section_title }}{{ $site_title }}</title>
+
+        {{- end -}}
+      
+        <!-- title -->
+
+
+        <!-- description -->
         {{- if .Description -}}
             <meta name="description" content="{{.Description}}">
         {{- end -}}
+        <!-- description -->
+        
+        <!-- tags -->
         {{- if .Params.tags -}}
             <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . `, `}}{{ end }}">
         {{- end -}}
+        <!-- tags -->
         
     {{- end -}}
+    <!-- homepage / not homepage -->
 
     <script src="/js/blog.js"></script>
   
@@ -64,7 +124,7 @@
 
 <body>
 
-    <div id="header" data-nosnippet>
+    <div id="header" onclick="window.scrollTo(0,0);" data-nosnippet>
 
         <!-- <span id="header_text">
             <a href="/">
@@ -122,8 +182,9 @@
         </div>
 
         <div id="header_site_title">
-            <a href="#" onclick="window.scrollTo(0,0); return false;"><img src="/images/blog1_icon_white_200x200.png" style="width:20px;height:20px;margin-top:5px;margin-bottom:5px;margin-left:2px;margin-right:8px;float:left;" alt=""></a>
-            <a href="/">
+            <!-- <a href="#" onclick="window.scrollTo(0,0); return false;"> -->
+            <!-- <img src="/images/blog1_icon_white_200x200.png" style="width:20px;height:20px;margin-top:5px;margin-bottom:5px;margin-left:2px;margin-right:8px;float:left;" alt=""> -->
+
             {{- if .IsHome -}}
                 {{ .Site.Title }}
             {{- else if .IsSection -}}
@@ -139,7 +200,7 @@
             {{- else if eq .Kind `page` -}}
                 {{ .Title }}
             {{- end -}}
-            </a>
+            <!-- </a> -->
         </div>       
 
     </div>
