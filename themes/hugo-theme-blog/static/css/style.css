@@ -251,7 +251,7 @@ body
     text-decoration: none;
 }
 
-#grouped { margin-top: 0px; padding: 20px; }
+#grouped { margin-top: 0px; padding: 30px; padding-top: 0px; }
 
 #grouped h3 { margin: 0px; padding-top: 0px; padding-bottom: 0px; }
 
@@ -365,3 +365,5 @@ div .highlight pre [class*='language']
 .noborder tr {border:none;color:black;background-color:white;}
 .noborder th {border:none;color:black;background-color:white;}
 .noborder td {border:none;color:black;background-color:white;}
+
+.anchor_padding { margin: -20px; padding-top: 20px; }

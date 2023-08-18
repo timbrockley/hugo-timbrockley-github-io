@@ -12,7 +12,9 @@
 	
 		<div id="grouped">
 			{{- range .Data.Terms.Alphabetical -}}
-				<h3 id="{{ .Page.Title }}">{{ .Page.Title }}</h3>
+				<!-- put anchor tag before heading to allow padding to clear fixed header -->
+				<a id="{{ .Page.Title }}" class="anchor_padding"></a>
+				<h3>{{ .Page.Title }}</h3>
 				<ul>
 				{{- range .Pages -}}
 					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
