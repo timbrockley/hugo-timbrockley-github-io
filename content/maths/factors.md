@@ -4,8 +4,8 @@ title: "Factors"
 description: "What is a Factor ? A factor is a number that divides into another number exactly and without leaving a remainder."
 date: 2020-12-24
 image: "/images/maths/maths1_200x200.png"
-categories: [maths]
-tags: [factors, factor-tree]
+categories: ["maths"]
+tags: ["factors"," factor-tree"]
 ---
 ## What is a Factor ?
 

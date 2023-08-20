@@ -4,8 +4,8 @@ title: "The English Alphabet"
 description: "The English alphabet has 26 letters, which is made up of consonants and vowels."
 date: 2018-04-26
 image: "/images/english/book_green_200x200.png"
-categories: [english]
-tags: [alphabet, english-alphabet]
+categories: ["english"]
+tags: ["alphabet", "english-alphabet"]
 ---
 The English alphabet has 26 letters, which is made up of consonants and vowels.
 

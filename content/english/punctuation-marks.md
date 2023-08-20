@@ -4,8 +4,8 @@ title: "Punctuation Marks"
 description: "There are a number of punctuation marks used in English."
 date: 2018-04-26
 image: "/images/english/book_green_200x200.png"
-categories: [english]
-tags: [full-stops, exlamation-marks, question-marks, quotation-marks, apostrophes, hyphens]
+categories: ["english"]
+tags: ["full-stops", "exlamation-marks", "question-marks", "quotation-marks", "apostrophes", "hyphens"]
 ---
 There are a number of punctuation marks used in English.
 

@@ -4,8 +4,8 @@ title: "Useful Linux Commands"
 description: "A list of Linux commands that I have found useful."
 date: 2021-08-18
 image: "/images/linux/linux_tux_200x200.png"
-categories: [linux]
-tags: [linux, linux-command-line]
+categories: ["linux"]
+tags: ["linux", "linux-command-line"]
 ---
 ## bindfs
 {{< rawhtml >}}<a href="https://bindfs.org/docs/bindfs.1.html" target="_blank">bindfs - mount --bind in user-space</a>

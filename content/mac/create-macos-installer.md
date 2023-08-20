@@ -4,8 +4,8 @@ title: "Create a macOS Installer"
 description: "How to create a macOS Installer on a bootable USB Drive."
 date: 2023-03-26
 image: "/images/mac/mac-macos-monterey-logo-200x200.png"
-categories: [mac]
-tags: [mac, macos, os, monterey, usb, boot, install]
+categories: ["mac"]
+tags: ["mac", "macos", "operating system", "os", "monterey", "usb", "boot", "install"]
 ---
 How to create a macOS Installer on a bootable USB Drive.
 

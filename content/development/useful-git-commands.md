@@ -4,8 +4,8 @@ title: "Useful Git Commands"
 description: "A list of Git commands that I have found useful."
 date: 2021-09-01
 image: "/images/development/useful-git-commands/git_logo_200x200.png"
-categories: [development]
-tags: [git, dangling-commits, dangling-blobs, remove-dangling-commits, remove-dangling-blobs]
+categories: ["development"]
+tags: ["git", "dangling-commits", "dangling-blobs", "remove-dangling-commits", "remove-dangling-blobs"]
 ---
 ## git-init
 

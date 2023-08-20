@@ -8,6 +8,9 @@ theme = "hugo-theme-blog"
 
 enableRobotsTXT = true
 
+preserveTaxonomyNames=true
+
+
 [Params]
   description = "Blog site containing various blog posts about subjects from linux and code development to maths and english."
 

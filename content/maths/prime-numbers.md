@@ -4,8 +4,8 @@ title: "Prime Numbers"
 description: "What is a Prime Number ? A prime number is a whole number greater than 1 that is only divisible by itself and 1."
 date: 2020-12-24
 image: "/images/maths/maths1_200x200.png"
-categories: [maths]
-tags: [prime-numbers]
+categories: ["maths"]
+tags: ["prime-numbers"]
 ---
 ## What is a Prime Number ?
 

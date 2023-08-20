@@ -4,8 +4,8 @@ title: "Reordering Disk Partition Tables"
 description: "How I use sfdisk to reorder disk partition tables."
 date: 2021-08-18
 image: "/images/linux/linux_tux_200x200.png"
-categories: [linux]
-tags: [linux, reorder-partitions, partitions]
+categories: ["linux"]
+tags: ["linux", "reorder-partitions", "partitions"]
 ---
 ## How I use "sfdisk" to reorder disk partition tables
 

@@ -4,8 +4,8 @@ title: "Prime Factors"
 description: "What are Prime Factors ? Prime factors are factors of a number that are, themselves, prime numbers."
 date: 2020-12-24
 image: "/images/maths/maths1_200x200.png"
-categories: [maths]
-tags: [prime-factors, prime-numbers]
+categories: ["maths"]
+tags: ["prime-factors", "prime-numbers"]
 ---
 ## What are Prime Factors ?
 Prime factors are factors of a number that are, themselves, prime numbers.

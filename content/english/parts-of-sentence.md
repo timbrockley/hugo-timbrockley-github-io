@@ -4,8 +4,8 @@ title: "Parts of a Sentence"
 description: "Sentences can be split up using the following examples."
 date: 2018-04-26
 image: "/images/english/book_green_200x200.png"
-categories: [english]
-tags: [nouns, proper-nouns, verbs, adjectives, adverbs, prepositions, conjunctions, interjection]
+categories: ["english"]
+tags: ["nouns", "proper-nouns", "verbs", "adjectives", "adverbs", "prepositions", "conjunctions", "interjection"]
 ---
 Sentences can be split up using the following examples.
 

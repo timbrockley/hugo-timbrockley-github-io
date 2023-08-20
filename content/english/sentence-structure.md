@@ -4,8 +4,8 @@ title: "Sentence Structure"
 description: "English uses a Subject–Verb–Object Model (SOV)."
 date: 2018-04-26
 image: "/images/english/book_green_200x200.png"
-categories: [english]
-tags: [sov, subject–verb–object]
+categories: ["english"]
+tags: ["sov", "subject verb object"]
 ---
 English uses a Subject–Verb–Object Model (SOV).
 

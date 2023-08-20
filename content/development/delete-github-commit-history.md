@@ -4,8 +4,8 @@ title: "Delete GitHub Commit History"
 description: "How to clone a GitHub repository and replace all existing commit history with an initial commit."
 date: 2020-08-11
 image: "/images/development/delete-github-commit-history/github_logo_200x200.png"
-categories: [development]
-tags: [github, github-commit-history, github-repository]
+categories: ["development"]
+tags: ["github", "github commit history", "github-repository"]
 ---
 
 To delete all existing commits and recreate an initial commit.

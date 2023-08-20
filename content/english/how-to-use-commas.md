@@ -4,8 +4,8 @@ title: "How To Use Commas"
 description: "Commas are used to separate parts of a sentence."
 date: 2018-04-26
 image: "/images/english/book_green_200x200.png"
-categories: [english]
-tags: [commas, lists, joining-clauses]
+categories: ["english"]
+tags: ["commas", "lists", "joining-clauses"]
 ---
 Commas are used to separate parts of a sentence.
 
