@@ -5,7 +5,7 @@ description: "The steps I followed to set up Japanese Input Method using Linux M
 date: 2021-08-18
 image: "/images/linux/japanese-input-method/japanese_input_method_120x120.png"
 categories: ["linux"]
-tags: ["japanese-input-method", "japanese", "input-method", "hiragana", "katakana", "kanji", "fcitx", "mozc", "debian", "ubuntu", "linux-mint," "lmde"]
+tags: ["japanese-input-method", "japanese", "input-method", "hiragana", "katakana", "kanji", "fcitx", "mozc", "debian", "ubuntu", "linux-mint", "lmde"]
 ---
 The steps I followed to set up Japanese Input Method using Linux Mint Debian Edition (LMDE 4).
 

@@ -5,7 +5,7 @@ description: "What is a Factor ? A factor is a number that divides into another 
 date: 2020-12-24
 image: "/images/maths/maths1_200x200.png"
 categories: ["maths"]
-tags: ["factors"," factor-tree"]
+tags: ["factors", "factor-tree"]
 ---
 ## What is a Factor ?
 
