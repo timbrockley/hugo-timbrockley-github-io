@@ -2,8 +2,8 @@ User-agent: *
 
 Allow: /
 
-Disallow: /archive/
-Disallow: /categories/
-Disallow: /tags/
+Disallow: /archive
+Disallow: /categories
+Disallow: /tags
 
 Sitemap: {{ printf "%ssitemap.xml" (absURL `/`) }}

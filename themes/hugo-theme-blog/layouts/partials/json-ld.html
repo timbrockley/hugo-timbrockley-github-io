@@ -48,7 +48,7 @@
 			{
 				"@type": "WebPage",
 				"@id": {{ printf "%s#webpage%s" (absURL `/`) (replace .RelPermalink `/` `_` | strings.TrimRight "_") }},
-				"url": {{ .Permalink }},
+				"url": {{ .Permalink | strings.TrimRight `/` }},
 				"name": {{ .Title }}
 			}
 		{{- end -}}
@@ -103,7 +103,7 @@
 					{
 						"@type": "WebPage",
 						"@id": {{ printf "%s#webpage%s" (absURL `/`) (replace .RelPermalink `/` `_` | strings.TrimRight "_") }},
-						"url": {{ .Permalink }},
+						"url": {{ .Permalink | strings.TrimRight `/` }},
 						"name": {{ .Title }}
 					}
 				}
