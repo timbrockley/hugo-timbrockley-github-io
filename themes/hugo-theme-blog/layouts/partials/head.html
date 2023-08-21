@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" prefix="og: http://ogp.me/ns#">
 
 <head>
 
@@ -17,20 +17,20 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
     {{- if .IsPage -}}
-        <link rel="canonical" href="{{ .Permalink | strings.TrimRight `/` }}"> 
+        <link rel="canonical" href="{{ .Permalink | strings.TrimRight `/` }}">
     {{- else -}}
-        <link rel="canonical" href="{{ absURL `/` }}"> 
+        <link rel="canonical" href="{{ absURL `/` }}">
     {{- end -}}
 
 	<link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/style.css">
-    
+
     <!-- title / description / tags -->
 
     <!-- homepage -->
     {{- if .IsHome -}}
     <!-- homepage -->
-    
+
         <!-- title -->
         {{- if .Site.Title -}}
             <title>{{.Site.Title}}</title>
@@ -50,7 +50,7 @@
             <meta name="keywords" content="{{ with .Site.Params.tags }}{{ delimit . `, `}}{{ end }}">
         {{- end -}}
         <!-- tags -->
-        
+
     <!-- not homepage -->
     {{- else -}}
     <!-- not homepage -->
@@ -92,7 +92,7 @@
             <title>{{ .Title }}{{ $section_title }}{{ $site_title }}</title>
 
         {{- end -}}
-      
+
         <!-- title -->
 
 
@@ -101,18 +101,18 @@
             <meta name="description" content="{{.Description}}">
         {{- end -}}
         <!-- description -->
-        
+
         <!-- tags -->
         {{- if .Params.tags -}}
             <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . `, `}}{{ end }}">
         {{- end -}}
         <!-- tags -->
-        
+
     {{- end -}}
     <!-- homepage / not homepage -->
 
     <script src="/js/blog.js"></script>
-  
+
     <meta property="og:title" content="{{ .Site.Title }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
@@ -120,9 +120,9 @@
     <meta property="og:image:alt" content="{{ .Site.Title }}">
     <meta property="og:locale" content="en_GB">
     <meta property="og:type" content="website">
-    
+
 
     {{ partial "json-ld.html" . }}
-    
+
 
 </head>
