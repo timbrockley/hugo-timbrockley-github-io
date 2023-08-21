@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     {{- if or (eq .Kind "home") (eq .Kind "page") -}}
-        <meta name="robots" content="noarchive">
+        <meta name="robots" content="noarchive, noodp, noydir">
     {{- else -}}
         <meta name="robots" content="noindex, nofollow, noarchive, noodp, noydir">
     {{- end -}}
