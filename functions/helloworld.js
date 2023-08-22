@@ -1,8 +1,8 @@
-export function onRequest(request, env, ctx)
+export function onRequest(context)
 {
-	// const body = await request.formData();
+	const form_data = context.request.formData();
 
-	const text = JSON.stringify(request)
+	const text = JSON.stringify(form_data)
 
 	return new Response(`request = ${text}`);
 }
