@@ -376,3 +376,13 @@ div .highlight pre [class*='language']
 }
 
 .hidden { display: none; }
+
+#human_test_text
+{
+    margin: 0px;
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: bold;
+    outline: thin solid #007fff;
+}
