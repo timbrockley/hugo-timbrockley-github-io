@@ -51,7 +51,7 @@ function handleSubmit()
     let contactForm = document.getElementById('contact');
     let formData = new FormData(contactForm);
     //--------------------------------------------------------------------------------
-    fetch('/helloworld/', {
+    fetch('https://blog.timbrockley.co.uk/helloworld/', {
     method: 'POST',
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString()
