@@ -65,8 +65,8 @@
 
         {{- if .IsSection -}}
 
-            {{- if eq .Type `archive` -}}
-                <title>{{ title .Type }}{{ $site_title }}</title>
+            {{- if or (eq .Type `archive`) (eq .Type `contact`) -}}
+                <title>{{ .Title }}{{ $site_title }}</title>
             {{- else -}}
                 <title>{{ title ( replace ( replace .Type `_` ` `)  `-` ` ` ) }}{{ $site_title }}</title>
             {{- end -}}

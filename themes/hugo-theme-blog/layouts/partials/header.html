@@ -50,21 +50,19 @@
                     {{- range .Site.Pages.GroupByDate "2006"  -}}
                         {{- if gt .Key 1 -}}
                             <a href="/archive#{{.Key}}">{{.Key}}</a>
-                        {{- end -}}		
-                    {{- end -}}	
+                        {{- end -}}
+                    {{- end -}}
                 </span>
             </span>
 
         </div>
 
         <div id="header_site_title">
-            <!-- <a href="#" onclick="window.scrollTo(0,0); return false;"> -->
-            <!-- <img src="/images/blog1_icon_white_200x200.png" style="width:20px;height:20px;margin-top:5px;margin-bottom:5px;margin-left:2px;margin-right:8px;float:left;" alt=""> -->
             {{- if .IsHome -}}
                 {{ .Site.Title }}
             {{- else if .IsSection -}}
-                {{- if eq .Type `archive` -}}
-                    {{ title .Type }}
+                {{- if or (eq .Type `archive`) (eq .Type `contact`) -}}
+                    {{ .Title }}
                 {{- else -}}
                     {{ title ( replace ( replace .Type `_` ` `)  `-` ` ` ) }}
                 {{- end -}}
@@ -76,6 +74,6 @@
                 {{ .Title }}
             {{- end -}}
             <!-- </a> -->
-        </div>       
+        </div>
 
     </div>

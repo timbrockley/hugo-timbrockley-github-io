@@ -45,13 +45,13 @@ body
     padding: 0px 4px 0px 0px;
 }
 
-#header_text img 
-{ 
+#header_text img
+{
     position: relative;
     top: -3px;
-    margin: 4px; 
-    padding: 0px; 
-    text-align: center; 
+    margin: 4px;
+    padding: 0px;
+    text-align: center;
 }
 
 #header a, .header_text a:visited, .header_text a:hover
@@ -140,7 +140,7 @@ body
     padding: 0px 10px 0px 0px;
 }
 
-@media only screen and (max-width: 768px) 
+@media only screen and (max-width: 768px)
 {
     #header_site_title { display: none; }
 }
@@ -178,7 +178,7 @@ body
     padding-left: 2px;
     padding-bottom: 10px;
 }
-#infobar_header h1 { display: inline; margin: 0px; padding-top: 0px; padding-left: 12px; font-weight: normal; }  
+#infobar_header h1 { display: inline; margin: 0px; padding-top: 0px; padding-left: 12px; font-weight: normal; }
 #infobar_header_text { font-size: smaller; color:#555; }
 
 #tiles
@@ -242,7 +242,7 @@ body
 .tile .button
 {
     border: none;
-    border-radius: 1rem;    
+    border-radius: 1rem;
     background: #4963AF;
     color: white;
     padding: 4px 14px;
@@ -356,7 +356,7 @@ a { color: #4963AF; text-decoration: none; }
 a:visited { color: #4963AF; }
 a:hover { color: blue; }
 
-div .highlight pre [class*='language'] 
+div .highlight pre [class*='language']
 { background-color: #272822; color: #EEE; }
 
 .noborder {border:none;color:black;background-color:white;}
@@ -374,3 +374,5 @@ div .highlight pre [class*='language']
     max-width: 600px;
     text-align: center;
 }
+
+.hidden { display: none; }
