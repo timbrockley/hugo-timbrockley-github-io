@@ -1,4 +1,4 @@
-async function onRequest(request)
+export async function onRequest(request)
 {
 	let text = await request.text();
 
