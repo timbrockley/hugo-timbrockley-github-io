@@ -1,9 +1,6 @@
-export default
+async function onRequest(request)
 {
-	async fetch(request, env, ctx)
-	{
-		let text = await request.text();
+	let text = await request.text();
 
-    	return new Response(`request = ${text}`);
-  	},
-};
+	return new Response(`request = ${text}`);
+}
