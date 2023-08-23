@@ -1,7 +1,7 @@
 # contact form
-# themes/hugo-theme-blog/content/contact
-# themes/hugo-theme-blog/layouts/_default/contact.html
-# themes/hugo-theme-blog/static/js/contact-cloudflare.js
+themes/hugo-theme-blog/content/contact
+themes/hugo-theme-blog/layouts/_default/contact.html
+themes/hugo-theme-blog/static/js/contact-cloudflare.js
 
 # Generated files by hugo
 public/
