@@ -46,12 +46,14 @@ function handleSubmit()
     //----------------------------------------
     if(message===''){ document.getElementById('form_status').innerHTML = `<span style="color: red;">Message cannot be blank</span>`; document.getElementById('message').focus(); return false; }
     //----------------------------------------
-    if(human_test.replace(/\s/g,'') !== human_test_text.replace(/\s/g,'')){ document.getElementById('form_status').innerHTML = `<span style="color: red;">Please enter the two numbers displayed next to the form</span>`; document.getElementById('human_test').value = ''; document.getElementById('human_test').focus(); return false; }
+    if(human_test.replace(/\s/g,'').length!==6 || human_test.replace(/\s/g,'') !== human_test_text.replace(/\s/g,'')){ document.getElementById('form_status').innerHTML = `<span style="color: red;">Please enter the two numbers displayed next to the form</span>`; document.getElementById('human_test').value = ''; document.getElementById('human_test').focus(); return false; }
     //--------------------------------------------------------------------------------
     let contactForm = document.getElementById('contact');
     let formData = new FormData(contactForm);
     //--------------------------------------------------------------------------------
-    fetch('https://blog.timbrockley.co.uk/helloworld/', {
+    const action = slide_base64_decode(document.getElementById('worker_function').value);
+    //--------------------------------------------------------------------------------
+    fetch(action, {
     method: 'POST',
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString()

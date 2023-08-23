@@ -22,6 +22,8 @@ function down(){ window.scrollBy(0, 20); }
 //--------------------------------------------------------------------------------
 //################################################################################
 //--------------------------------------------------------------------------------
+function slide_base64_encode(string){return btoa(slideString(string));}
+function slide_base64_decode(string){return slideString(atob(string));}
 function slideString(string){return string.split('').map(s=>slideChar(s)).join('');}
 function slideChar(chr){let charNum=chr.charCodeAt(0);if(charNum>=32&&charNum<=126){charNum-=32;charNum=94-charNum;charNum+=32;}return String.fromCharCode(charNum);}
 //--------------------------------------------------------------------------------
