@@ -377,6 +377,9 @@ div .highlight pre [class*='language']
 
 .hidden { display: none; }
 
+.green { color:green; font-size: larger; }
+.red { color:red; font-size: larger; }
+
 #human_test_text
 {
     margin: 0px;
@@ -386,3 +389,5 @@ div .highlight pre [class*='language']
     font-weight: bold;
     outline: thin solid #007fff;
 }
+
+#contact_form_email { color: black; }
