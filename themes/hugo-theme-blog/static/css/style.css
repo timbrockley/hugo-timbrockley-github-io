@@ -375,11 +375,6 @@ div .highlight pre [class*='language']
     text-align: center;
 }
 
-.hidden { display: none; }
-
-.green { color:green; font-size: larger; }
-.red { color:red; font-size: larger; }
-
 #human_test_text
 {
     margin: 0px;
@@ -391,3 +386,8 @@ div .highlight pre [class*='language']
 }
 
 #contact_form_email { color: black; }
+
+.hidden { display: none; }
+
+.green_larger { color:green; font-size: larger; }
+.red_larger { color:red; font-size: larger; }
