@@ -8,7 +8,7 @@
   </url>{{- print "\n\n" -}}
 {{- range sort .Site.RegularPages ".Permalink" -}}
   {{- print "\t" -}}<url>
-       <loc>{{ .Permalink | strings.TrimRight `/` }}</loc>
+       <loc>{{ .Permalink }}</loc>
        <priority>0.5</priority>
   </url>{{- print "\n\n" -}}
 {{- end -}}
