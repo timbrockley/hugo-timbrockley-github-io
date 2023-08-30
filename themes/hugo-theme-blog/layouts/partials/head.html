@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
     {{- if .IsPage -}}
-        <link rel="canonical" href="{{ .Permalink | strings.TrimRight `/` }}">
+        <link rel="canonical" href="{{ .Permalink }}">
     {{- else -}}
         <link rel="canonical" href="{{ absURL `/` }}">
     {{- end -}}

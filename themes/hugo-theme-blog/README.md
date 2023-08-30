@@ -24,8 +24,6 @@ theme = "hugo-theme-blog"
 
 ```toml
 languageCode = "en-GB"
-canonifyURLs = false
-relativeURLs = false
 
 baseURL = "http://example.org/"
 title = "Hugo Blog Site"
