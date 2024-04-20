@@ -99,12 +99,12 @@ func DefaultHandler(responseWriter http.ResponseWriter, httpRequest *http.Reques
 
 	responseWriter.Header().Set("Content-Type", contentTypeTextHTML)
 	
-	mainData := map[string]any{
+	data := map[string]any{
 	"title": appTitle,
 	"requestTable": GetRequestTable(httpRequest),
 	}
 	
-	fmt.Fprint(responseWriter, ParseTemplate("main", mainData))
+	fmt.Fprint(responseWriter, ParseTemplate("main", data))
 }
 ```
 
