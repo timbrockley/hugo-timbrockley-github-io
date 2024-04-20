@@ -59,7 +59,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("/", MainHandler)
+	router.HandleFunc("/", DefaultHandler)
 	router.HandleFunc("/javascript/", JSHandler)
 
 	router.HandleFunc("/request-table", RequestTableHandler)
@@ -90,12 +90,12 @@ func main() {
 }
 ```
 
-##  MainHandler
+##  DefaultHandler
 
 This function is the default handler. It sets the Content-Type HTTP Header then gets the content of the Request Table as a string to embed in the Main template. The ParseTemplate function is called to generate the template in the returned string. The last line outputs the string containing the generated HTML.
 
 ```go
-func MainHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
+func DefaultHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 
 	responseWriter.Header().Set("Content-Type", contentTypeTextHTML)
 	
