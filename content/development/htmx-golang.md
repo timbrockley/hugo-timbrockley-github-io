@@ -198,7 +198,9 @@ func ParseTemplate(templateName string, Data ...map[string]any) string {
 
 ##  Javascript
 
-This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js) from the [HTMX Website](https://htmx.org/) downloaded and saved in the "javascript" directory. It does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
+HTMX does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
+
+This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js) downloaded and saved in the "javascript" directory.
 
 ## Templates
 
@@ -271,4 +273,6 @@ button
 
 ## Futher Reading
 
-More information about the [net/http](https://pkg.go.dev/net/http), [html/template](https://pkg.go.dev/html/template) and other packages can be found on the [Go Website](https://golang.org/) and many tutorials are available online.
+More information about about HTMX can be found in the [HTMX Website](https://htmx.org/).
+
+More information about the [net/http](https://pkg.go.dev/net/http), [html/template](https://pkg.go.dev/html/template) and other packages can be found on the [Go Website](https://golang.org/).
