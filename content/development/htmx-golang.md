@@ -198,7 +198,7 @@ func ParseTemplate(templateName string, Data ...map[string]any) string {
 
 ##  Javascript
 
-This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js) from the [HTMX Website](https://htmx.org/) downloaded and saved in the "javascript" directory. It does use javascript which still needs to be enabled on your browser but you do not have any javascript yourself in order to use it. Instead tag attributes are embedded in your HTML code.
+This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js) from the [HTMX Website](https://htmx.org/) downloaded and saved in the "javascript" directory. It does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
 
 ## Templates
 
