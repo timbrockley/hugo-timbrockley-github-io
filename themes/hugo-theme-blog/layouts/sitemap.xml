@@ -1,0 +1,15 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+       <loc>{{ absURL `/` }}</loc>
+       <priority>1.0</priority>
+  </url>{{- print "\n\n" -}}
+{{- range sort .Site.RegularPages ".Permalink" -}}
+  {{- print "\t" -}}<url>
+       <loc>{{ .Permalink }}</loc>
+       <priority>0.5</priority>
+  </url>{{- print "\n\n" -}}
+{{- end -}}
+</urlset>

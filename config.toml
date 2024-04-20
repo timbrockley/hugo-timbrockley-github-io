@@ -1,0 +1,24 @@
+
+title = "Tim Brockley Blog"
+
+baseURL = "https://blog.timbrockley.co.uk/"
+
+theme = "hugo-theme-blog"
+
+
+enableRobotsTXT = true
+
+preserveTaxonomyNames=true
+
+
+[Params]
+
+  description = "Blog site containing various blog posts about subjects from linux and code development to maths and english."
+
+  copyright_owner = "Tim Brockley"
+
+  limit_section_navigation = false
+  limit_home_navigation = false
+
+  contact_form_action_development = "NioqLmRvb21sZ3BucG5wbWRmZ2Znbw=="
+  contact_form_action = "bzgvLDFxKyk8MTUqbw=="

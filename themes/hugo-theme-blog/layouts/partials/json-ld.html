@@ -1,0 +1,118 @@
+<script type="application/ld+json">
+
+{
+	"@context": "https://schema.org",
+	"@graph":
+	[
+	{{- if .IsHome -}}
+
+		{
+			"@type": "Person",
+			"@id": {{ printf "%s#person_tim_brockley" (absURL `/`) }},
+			"url": {{ absURL `/` }},
+			"name": "Tim Brockley",
+			"image": {{ printf "%simages/tb1-crop1.jpg" (absURL `/`) }}
+			},
+			{
+				"@type": "WebSite",
+				"@id": {{ printf "%s#website" (absURL `/`) }},
+				"url": {{ absURL `/` }},
+				{{- if .Site.Title -}}
+					"name": {{ .Site.Title }},
+				{{- end -}}
+				{{- if .Site.Params.description -}}
+					"description": "{{ .Site.Params.description }}",
+				{{- end -}}
+				"creator": { "@id": {{ printf "%s#person_tim_brockley" (absURL `/`) }} 
+			},
+
+			"copyrightHolder": { "@id": {{ printf "%s#person_tim_brockley" (absURL `/`) }} },
+			"hasPart":
+			[
+				{ "@id": {{ printf "%s#webpage_home" (absURL `/`) }} }
+
+				{{- range sort .Site.RegularPages ".Permalink" -}}
+					,
+					{ "@id": {{ printf "%s#webpage%s" (absURL `/`) (replace .RelPermalink `/` `_` | strings.TrimRight "_") }} }
+				{{- end -}}
+			]
+		},
+		{
+			"@type": "WebPage",
+			"@id": {{ printf "%s#webpage_home" (absURL `/`) }},
+			"url": {{ absURL `/` }},
+			"name": {{ .Site.Title }}
+		}
+		{{- range sort .Site.RegularPages ".Permalink" -}}
+			,
+			{
+				"@type": "WebPage",
+				"@id": {{ printf "%s#webpage%s" (absURL `/`) (replace .RelPermalink `/` `_` | strings.TrimRight "_") }},
+				"url": {{ .Permalink | strings.TrimRight `/` }},
+				"name": {{ .Title }}
+			}
+		{{- end -}}
+
+		,
+		{
+			"@type": "BreadcrumbList",
+			"@id": {{ printf "%s#breadcrumblist" (absURL `/`) }},
+			"name": "Website Breadcrumbs",
+			"itemListElement":
+			[
+				{
+					"@type": "ListItem",
+					"@id": {{ printf "%s#breadcrumblist_listitem1" (absURL `/`) }},
+					"position": 1,
+					"item":
+					{
+						"@type": "WebPage",
+						"@id": {{ printf "%s#webpage_home" (absURL `/`) }},
+						"url": {{ absURL `/` }},
+						"name": {{ .Site.Title }}
+					}
+				}
+			]
+		}
+
+	{{- else }}
+
+		{
+			"@type": "BreadcrumbList",
+			"@id": {{ printf "%s#breadcrumblist" (absURL `/`) }},
+			"name": "Website Breadcrumbs",
+			"itemListElement":
+			[
+				{
+					"@type": "ListItem",
+					"@id": {{ printf "%s#breadcrumblist_listitem1" (absURL `/`) }},
+					"position": 1,
+					"item":
+					{
+						"@type": "WebPage",
+						"@id": {{ printf "%s#webpage_home" (absURL `/`) }},
+						"url": {{ absURL `/` }},
+						"name": {{ .Site.Title }}
+					}
+				},
+				{
+					"@type": "ListItem",
+					"@id": {{ printf "%s#breadcrumblist_listitem2" (absURL `/`) }},
+					"position": 2,
+					"item":
+					{
+						"@type": "WebPage",
+						"@id": {{ printf "%s#webpage%s" (absURL `/`) (replace .RelPermalink `/` `_` | strings.TrimRight "_") }},
+						"url": {{ .Permalink | strings.TrimRight `/` }},
+						"name": {{ .Title }}
+					}
+				}
+			]
+		}
+
+	{{- end -}}
+
+	]
+}
+
+</script>

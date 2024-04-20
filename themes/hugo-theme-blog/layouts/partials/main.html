@@ -1,0 +1,193 @@
+<!---------------------------------------------------------------------------------------------------->
+{{- if .IsNode -}}
+<!---------------------------------------------------------------------------------------------------->
+
+	<div id="main" data-nosnippet>
+
+	<!---------------------------------------------------------------------------------------------------->
+	{{- if eq .Kind "taxonomy" -}}
+	<!---------------------------------------------------------------------------------------------------->
+
+		<h2>{{ title .Type }}</h2>
+	
+		<div id="grouped">
+			{{- range .Data.Terms.Alphabetical -}}
+				<!-- put anchor tag before heading to allow padding to clear fixed header -->
+				<a id="{{ .Page.Title }}" class="anchor_padding"></a>
+				<h3>{{ .Page.Title }}</h3>
+				<ul>
+				{{- range .Pages -}}
+					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+				{{- end -}}	
+				</ul>
+			{{- end -}}		
+		</div>
+			
+	<!---------------------------------------------------------------------------------------------------->
+	{{- else -}}
+	<!---------------------------------------------------------------------------------------------------->
+
+		<div id="tiles">
+
+			<!------------------------------------------------------------>
+			{{- $pages := "" -}}
+			<!------------------------------------------------------------>
+			<!-- limit to "home" pages if on home list page and limit set in config file -->
+			{{- if and (eq .Kind "home") (ne .Site.Params.limit_home_navigation true) -}}
+				{{- $pages = where .Site.AllPages "Kind" "page" -}}
+			{{- else -}}
+				{{- $pages = where .Pages "Kind" "page" -}}
+			{{- end -}}
+			<!------------------------------------------------------------>
+			{{- if .Site.Params.limit_home_tiles -}}
+				{{- $pages = first .Site.Params.limit_home_tiles $pages -}}
+			{{- end -}}
+			<!------------------------------------------------------------>
+			{{- $list_sort_column := "Date" -}}
+			{{- $list_sort_order := "desc" -}}
+
+			{{- if eq (lower .Site.Params.list_sort_column) "title" -}}
+				{{- $list_sort_column = "Title" -}}
+			{{- end -}}
+
+			{{- if or (eq (lower .Site.Params.list_sort_order) "asc") (eq (lower .Site.Params.list_sort_order) "a") -}}
+				{{- $list_sort_order = "" -}}
+			{{- end -}}
+
+			<!------------------------------------------------------------>
+			{{- range sort $pages $list_sort_column $list_sort_order -}}
+			<!------------------------------------------------------------>
+
+				<!------------------------------------------------------------>
+				<!-- use default image if not set in front matter -->
+				{{- $image := print "/images/hugo_logo_200x200.png" -}}
+				{{- if .Params.image -}}
+					{{- $image = print .Params.image -}}
+				{{- end -}}
+				<!------------------------------------------------------------>
+				<!-- use filename if title does not exist in front matter -->
+				{{- $title := "" -}}
+				{{- if .Title -}}
+					{{- $title = .Title -}}
+				{{- else -}}
+					{{- $title = .File.TranslationBaseName -}}
+				{{- end -}}
+				<!------------------------------------------------------------>
+				{{- $description := "" -}}
+				{{- if .Description -}}
+					{{- $description = .Description | markdownify | htmlEscape | truncate 100 -}}
+					{{- $description = trim $description "" -}}
+				{{- end -}}
+				<!------------------------------------------------------------>
+				<!-- {{- $category := "" -}}
+				{{- if .Params.categories -}}
+					{{- if index .Params.categories 0 -}}
+						{{- $category = index .Params.categories 0 -}}
+					{{- end -}}
+				{{- end -}} -->
+				{{- $section := `` -}}
+				{{- $section_href := `` -}}
+				{{- if and (ne .File.Dir `/`) -}}
+					{{/* sections with multiple slashes don't show in lists */}}
+					{{- if eq (strings.Count `/` .File.Dir) 1 -}}
+						{{- $section = ( replace .File.Dir `/` `_` ) | strings.TrimRight `_` -}}
+						{{- $section = replace $section ` ` `-` -}}
+						{{- $section_href = ( replace .File.Dir ` ` `-` ) | strings.TrimRight `_` -}}
+					{{- end -}}
+				{{- end -}}
+				<!------------------------------------------------------------>
+				{{- $date := "" -}}
+				{{- if .Date -}}
+					{{- $date = dateFormat "02 Jan 2006" .Date.UTC -}}
+				{{- end -}}
+				<!------------------------------------------------------------>
+
+				<div class="tile" data-post-url="{{.Permalink}}">
+
+					<p class="tile_image"><a href="{{.Permalink}}"><img src="{{$image}}" alt=""></a></p>
+
+					<p class="tile_title"><a href="{{.Permalink}}">{{$title}}</a></p>
+					
+					<p class="tile_date">
+						{{$date}}
+						{{- if $section -}}
+							<a href="/{{$section_href}}" class="tile_section">{{$section}}</a>
+						{{- end -}}
+					</p>
+
+					<p class="tile_description">{{$description}}</p>
+
+					<p class="tile_button"><a href="{{.Permalink}}" class="button">Read More</a></p>
+
+				</div>
+
+			<!------------------------------------------------------------>
+			{{- end -}}
+			<!------------------------------------------------------------>
+
+		</div>
+
+	<!---------------------------------------------------------------------------------------------------->
+	{{- end -}}
+	<!---------------------------------------------------------------------------------------------------->
+
+	</div>
+
+<!---------------------------------------------------------------------------------------------------->
+{{- else -}}
+<!---------------------------------------------------------------------------------------------------->
+
+	<div id="main">
+
+		<!-- infobar -->
+		<div id="infobar_header" data-nosnippet>
+
+			<!-- page title -->
+			{{- $title := "" -}}
+			{{- if .Title -}}
+				{{- $title = .Title -}}
+			{{- else -}}
+				{{- $title = .File.TranslationBaseName -}}
+			{{- end -}}			
+			<h1>{{$title}}</h1>
+			<!-- page title -->			
+
+			<span id="infobar_header_text">
+
+				<!-- date / time -->
+				{{- if .Date -}}
+					<br>
+					&nbsp;
+					&nbsp;
+					{{- if gt (dateFormat "1504" .Date.UTC) 0 -}}
+						{{ dateFormat "02 Jan 2006 15:04" .Date.UTC }}
+					{{- else -}}
+						{{ dateFormat "02 Jan 2006" .Date.UTC }}
+					{{- end -}}
+				{{- end -}}
+				<!-- date / time -->
+
+				<!-- author -->
+				{{- if .Params.author -}}
+					&nbsp;
+					&nbsp;
+					Author: {{.Params.author}}
+				{{- end -}}
+				<!-- author -->
+			
+			</span>	
+
+		</div>
+		<!-- infobar -->
+				
+		<!-- content -->
+		<div id="content">
+			{{.Content}}
+		</div>
+		<!-- content -->
+
+	</div>
+
+	<!---------------------------------------------------------------------------------------------------->
+{{- end -}}
+<!---------------------------------------------------------------------------------------------------->

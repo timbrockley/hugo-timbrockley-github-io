@@ -1,0 +1,79 @@
+<body>
+
+    <div id="header" onclick="window.scrollTo(0,0);" data-nosnippet>
+
+        <!-- <span id="header_text">
+            <a href="/">
+                <img src="/images/home_white_200x200.png" width="20px" height="20px" alt="">
+                Home
+            </a>
+        </span>        -->
+
+        <div id="menubar">
+
+            <a href="/">
+                <div class="menubar_home_link">
+                    <img src="/images/home_white_200x200.png" alt="">
+                    Home
+                </div>
+            </a>
+
+            <span class="dropdown_menu">
+                <a href="/categories"><div  class="dropdown_menu_title"><img src="/images/categories_200x200.png" alt="">Categories</div></a>
+                <span class="dropdown_menu_item">
+                    {{- if isset .Site.Taxonomies "categories" -}}
+                        {{- if not (eq (len .Site.Taxonomies.categories) 0) -}}
+                            {{- range $category_name, $category_items := .Site.Taxonomies.categories -}}
+                                <a href="/categories/{{$category_name}}">{{$category_name}}</a>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                </span>
+            </span>
+
+            <!-- <span class="dropdown_menu">
+                <a href="/tags"><div  class="dropdown_menu_title"><img src="/images/tags_200x200.png" alt="">Tags</div></a>
+                <span class="dropdown_menu_item">
+                    {{- if isset .Site.Taxonomies "tags" -}}
+                        {{- if not (eq (len .Site.Taxonomies.tags) 0) -}}
+                            {{- range $tag_name, $tag_items := .Site.Taxonomies.tags -}}
+                                <a href="/tags/{{$tag_name}}">{{ title ( replace ( replace $tag_name `_` ` `)  `-` ` ` ) }}</a>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                </span>
+            </span> -->
+
+            <span class="dropdown_menu">
+                <a href="/archive"><div  class="dropdown_menu_title"><img src="/images/archive_245x200.png" alt="">Archive</div></a>
+                <span class="dropdown_menu_item">
+                    {{- range .Site.Pages.GroupByDate "2006"  -}}
+                        {{- if gt .Key 1 -}}
+                            <a href="/archive#{{.Key}}">{{.Key}}</a>
+                        {{- end -}}
+                    {{- end -}}
+                </span>
+            </span>
+
+        </div>
+
+        <div id="header_site_title">
+            {{- if .IsHome -}}
+                {{ .Site.Title }}
+            {{- else if .IsSection -}}
+                {{- if or (eq .Type `archive`) (eq .Type `contact`) -}}
+                    {{ .Title }}
+                {{- else -}}
+                    {{ title ( replace ( replace .Type `_` ` `)  `-` ` ` ) }}
+                {{- end -}}
+            {{- else if eq .Kind `taxonomy` -}}
+                {{ title .Type }}
+            {{- else if eq .Kind `term` -}}
+                {{ title ( replace ( replace .LinkTitle `_` ` `)  `-` ` ` ) }}
+            {{- else if eq .Kind `page` -}}
+                {{ .Title }}
+            {{- end -}}
+            <!-- </a> -->
+        </div>
+
+    </div>

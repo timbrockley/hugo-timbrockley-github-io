@@ -1,0 +1,99 @@
+    {{- if or (.Params.categories) (.Params.tags) -}}
+
+        <div id="info1" data-nosnippet>
+
+            &nbsp;
+            
+            <!-- Single Page Categories -->
+            {{- if .Params.categories -}}
+                <span class="taxonomy">Categories:</span>
+                {{- range .Params.categories -}}
+                &nbsp;&nbsp;
+                    <a href="/categories/{{ replace . ` ` `-`}}">{{ replace . ` ` `-`}}</a> 
+                {{- end -}}
+                <br>
+            {{- end -}}
+
+            &nbsp;
+
+            <!-- Single Page Tags -->
+            {{- if .Params.tags -}}
+                <span class="taxonomy">Tags:</span>
+                {{- range .Params.tags -}}
+                    &nbsp;&nbsp;
+                    <a href="/tags/{{ replace . ` ` `-`}}">{{ replace . ` ` `-`}}</a>
+                {{- end -}}
+            {{- end -}}
+
+        </div>
+
+        <div id="info2" data-nosnippet></div>
+
+    {{- end -}}
+
+    <div id="footer" data-nosnippet>
+
+        <span class="footer_text">
+
+            <a href="#" onclick="window.scrollTo(0,0); return false;">
+
+            &nbsp;
+
+            {{- if .Site.Copyright -}}
+
+                {{.Site.Copyright}}
+
+            {{- else -}}
+
+                {{- if or (.Site.Params.copyright_year) (.Site.Params.copyright_year_start) (.Site.Params.copyright_end) (.Site.Params.copyright_owner) -}}
+
+                    &nbsp;Copyright&nbsp;
+
+                    {{- if .Site.Params.copyright_year -}}
+
+                        {{.Site.Params.copyright_year}}
+
+                    {{- else -}}
+
+                        {{- if .Site.Params.copyright_year_start -}}
+
+                            {{.Site.Params.copyright_year_start}}
+                            -
+
+                        {{- end -}}
+
+                        {{- if .Site.Params.copyright_year_end -}}
+
+                            {{.Site.Params.copyright_year_end}}
+
+                        {{- else -}}
+
+                            {{now.Format "2006"}}
+
+                        {{- end -}}
+
+
+                    {{- end -}}
+
+                    {{- if .Site.Params.copyright_owner -}}
+                        &nbsp;{{.Site.Params.copyright_owner -}}.
+                    {{- end -}}
+
+                {{- else -}}
+
+                    {{.Site.Title}}. 
+
+                {{- end -}}
+
+            {{- end -}}
+        
+            &nbsp; All Rights Reserved.Content provided for informational purposes only. E&OE. 
+
+            </a>
+
+        </span>
+
+    </div>
+
+</body>
+</html>

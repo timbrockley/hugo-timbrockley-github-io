@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: http://ogp.me/ns#">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{- if or (eq .Kind "home") (eq .Kind "page") -}}
+        <meta name="robots" content="noarchive, noodp, noydir">
+    {{- else -}}
+        <meta name="robots" content="noindex, nofollow, noarchive, noodp, noydir">
+    {{- end -}}
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+    {{- if .IsPage -}}
+        <link rel="canonical" href="{{ .Permalink }}">
+    {{- else -}}
+        <link rel="canonical" href="{{ absURL `/` }}">
+    {{- end -}}
+
+	<link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- title / description / tags -->
+
+    <!-- homepage -->
+    {{- if .IsHome -}}
+    <!-- homepage -->
+
+        <!-- title -->
+        {{- if .Site.Title -}}
+            <title>{{.Site.Title}}</title>
+        {{- else -}}
+            <title>Tim Brockley Blog</title>
+        {{- end -}}
+        <!-- title -->
+
+        <!-- description -->
+        {{- if .Site.Params.description -}}
+            <meta name="description" content="{{.Site.Params.description}}">
+        {{- end -}}
+        <!-- description -->
+
+        <!-- tags -->
+        {{- if .Site.Params.tags -}}
+            <meta name="keywords" content="{{ with .Site.Params.tags }}{{ delimit . `, `}}{{ end }}">
+        {{- end -}}
+        <!-- tags -->
+
+    <!-- not homepage -->
+    {{- else -}}
+    <!-- not homepage -->
+
+
+        <!-- title -->
+
+        {{- $site_title := `` -}}
+        {{- if .Site.Title -}}
+            {{- $site_title = printf ` - %s` .Site.Title -}}
+        {{- end -}}
+
+        {{- if .IsSection -}}
+
+            {{- if or (eq .Type `archive`) (eq .Type `contact`) -}}
+                <title>{{ .Title }}{{ $site_title }}</title>
+            {{- else -}}
+                <title>{{ title ( replace ( replace .Type `_` ` `)  `-` ` ` ) }}{{ $site_title }}</title>
+            {{- end -}}
+
+        {{- else if eq .Kind `taxonomy` -}}
+
+            <title>{{ title .Type }}{{ $site_title }}</title>
+
+        {{- else if eq .Kind `term` -}}
+
+            <title>{{ title ( replace ( replace .LinkTitle `_` ` `)  `-` ` ` ) }}{{ $site_title }}</title>
+
+        {{- else if eq .Kind `page` -}}
+
+            {{- $section := `` -}}
+            {{- $section_title := `` -}}
+            {{- if ne .File.Dir `/` -}}
+                {{- $section = ( replace .File.Dir `/` `_` ) | strings.TrimRight `_` -}}
+                {{- $section_title = title ( replace ( replace $section `_` ` `)  `-` ` ` ) -}}
+                {{- $section_title = printf " - %s" $section_title -}}
+            {{- end -}}
+
+            <title>{{ .Title }}{{ $section_title }}{{ $site_title }}</title>
+
+        {{- end -}}
+
+        <!-- title -->
+
+
+        <!-- description -->
+        {{- if .Description -}}
+            <meta name="description" content="{{.Description}}">
+        {{- end -}}
+        <!-- description -->
+
+        <!-- tags -->
+        {{- if .Params.tags -}}
+            <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . `, `}}{{ end }}">
+        {{- end -}}
+        <!-- tags -->
+
+    {{- end -}}
+    <!-- homepage / not homepage -->
+
+    <script src="/javascript/blog.js"></script>
+
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:url" content="{{ absURL `/` }}">
+    <meta property="og:image" content="{{ absURL `/images/blog1_icon_200x200.png` }}">
+    <meta property="og:image:alt" content="{{ .Site.Title }}">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+
+
+    {{ partial "json-ld.html" . }}
+
+
+</head>

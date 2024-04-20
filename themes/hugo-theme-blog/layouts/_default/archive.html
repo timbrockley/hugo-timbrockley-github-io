@@ -1,0 +1,30 @@
+{{- define "header" -}}
+{{- end -}}
+{{ define "main" }}
+
+    <div id="main" data-nosnippet>
+
+		<h2>Archive</h2>
+	
+		<div id="grouped">
+            {{- range .Site.Pages.GroupByDate "2006"  -}}
+                {{- if ge .Key 1000 -}}
+                    <!-- put anchor tag before heading to allow padding to clear fixed header -->
+                    <a id="{{- .Key -}}" class="anchor_padding"></a>
+                    <h3>{{- .Key -}}</h3>
+                    <ul>
+                    {{- range where .Pages ".Kind" "page" -}}
+                        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+                    {{- end -}}	
+                    </ul>
+                {{- end -}}		
+            {{- end -}}		
+		</div>
+
+    </div>
+
+{{- end -}}
+{{- define "sidebar" -}}
+{{- end -}}
+{{- define "footer" -}}
+{{- end -}}

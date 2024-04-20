@@ -1,0 +1,7 @@
+name = "Hugo Blog Theme"
+description = "Blog theme for Hugo website framework."
+
+min_version = "0.54.0"
+
+[author]
+  name = "Tim Brockley"
