@@ -271,7 +271,7 @@ button
 {{- end -}}
 ```
 
-## Futher Reading
+## Further Reading
 
 More information about about HTMX can be found in the [HTMX Website](https://htmx.org/).
 
