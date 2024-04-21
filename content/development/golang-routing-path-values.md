@@ -97,7 +97,8 @@ func RoutesHandler(responseWriter http.ResponseWriter, httpRequest *http.Request
 	</form>
 	<div>%s</div>
 	</body>
-	</html>`
+	</html>
+	`
 
 	fmt.Fprint(responseWriter, fmt.Sprintf(htmlTemplate, escapedPathString))
 }
