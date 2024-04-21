@@ -49,8 +49,8 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("/", RoutesHandler)
-	router.HandleFunc("/route/{pathValue}", RoutesHandler)
+	router.HandleFunc("/", RouteHandler)
+	router.HandleFunc("/route/{pathValue}", RouteHandler)
 
 	log.Printf(`Starting %s http://%s`, appTitle, host)
 
@@ -67,14 +67,14 @@ func main() {
 }
 ```
 
-##  RoutesHandler
+##  RouteHandler
 
 This function outputs html with two buttons. Each button makes a request with different Path Values.
 
 If a non-blank Path Value is received it is display at the bottom of the page.
 
 ```go
-func RoutesHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
+func RouteHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 
 	responseWriter.Header().Set("Content-Type", contentTypeTextHTML)
 
