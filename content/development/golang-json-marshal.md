@@ -7,7 +7,7 @@ image: "/images/development/golang/gopher_200x200.png"
 categories: ["development", "golang", "json"]
 tags: ["golang", "go", "json", "marshal"]
 ---
-Go's [json.Marshal](https://pkg.go.dev/encoding/json#Marshal) and [json.MarshalIndent](https://pkg.go.dev/encoding/json#MarshalIndent) functions escapes HTML data.
+Go's [json.Marshal](https://pkg.go.dev/encoding/json#Marshal) and [json.MarshalIndent](https://pkg.go.dev/encoding/json#MarshalIndent) functions both escape HTML data.
 
 This may be useful for some circumstances when it is being output in a browser but it is not useful when your programs expects data without escaping.
 
