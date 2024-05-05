@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Golang Routing Path Values"
+title: "Go Routing Path Values"
 description: "Go 1.22 Routing Enhancements - Path Values."
 date: 2024-04-19
 image: "/images/development/golang/gopher_200x200.png"
-categories: ["development", "golang", "routing"]
+categories: ["development", "go", "routing"]
 tags: ["golang", "go", "routing", "path-values"]
 ---
 Go 1.22 Routing Enhancements include improvements to deal with Path Values.
 
-This post is intended for developers who have a basic knowledge of HTML and Golang. It serves purely as an example for educational purposes only and it should not be used in production.
+This post is intended for developers who have a basic knowledge of HTML and Go. It serves purely as an example for educational purposes only and it should not be used in production.
 
 ## Package Name and Imports
 

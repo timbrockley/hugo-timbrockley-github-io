@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Golang JSON Marshal"
+title: "Go JSON Marshal"
 description: "Marshal JSON data without escaping HMTL characters."
 date: 2024-04-16
 image: "/images/development/golang/gopher_200x200.png"
-categories: ["development", "golang", "json"]
+categories: ["development", "go", "json"]
 tags: ["golang", "go", "json", "marshal"]
 ---
 Go's [json.Marshal](https://pkg.go.dev/encoding/json#Marshal) and [json.MarshalIndent](https://pkg.go.dev/encoding/json#MarshalIndent) functions both escape HTML data.

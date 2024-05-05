@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "HTMX + Golang"
+title: "HTMX + Go"
 description: "Basic HTMX Application using Go 1.22 with net/http and html/template."
 date: 2024-04-20
 image: "/images/development/htmx-golang/htmx_golang_200x200.png"
-categories: ["development", "htmx", "golang"]
+categories: ["development", "htmx", "go"]
 tags: ["htmx", "golang", "go", "template", "templates", "templating"]
 ---
 Basic HTMX Application using Go 1.22 with the [net/http](https://pkg.go.dev/net/http) package to create a simple HTTP Server and the [html/template](https://pkg.go.dev/html/template) package to generate basic templates.
 
-This post is intended for developers who have a basic knowledge of HTML and Golang. It serves purely as an example for educational purposes only and it should not be used in production.
+This post is intended for developers who have a basic knowledge of HTML and Go. It serves purely as an example for educational purposes only and it should not be used in production.
 
 ## Package Name and Imports
 
@@ -98,12 +98,12 @@ This function is the default handler. It sets the Content-Type HTTP Header then 
 func DefaultHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 
 	responseWriter.Header().Set("Content-Type", contentTypeTextHTML)
-	
+
 	data := map[string]any{
 	"title": appTitle,
 	"requestTable": GetRequestTable(httpRequest),
 	}
-	
+
 	fmt.Fprint(responseWriter, ParseTemplate("main", data))
 }
 ```
@@ -115,9 +115,9 @@ This functions sets the correct HTTP Header in order the serve the files in the 
 
 ```go
 func JSHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
-	
+
 	responseWriter.Header().Set("Content-Type", contentTypeJavascript)
-	
+
 	http.ServeFile(responseWriter, httpRequest, `javascript/`+path.Base(httpRequest.URL.Path))
 }
 ```
@@ -130,7 +130,7 @@ This function calls the GetRequestTable functions that returns the Request Table
 func RequestTableHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 
 	responseWriter.Header().Set("Content-Type", contentTypeTextHTML)
-	
+
 	fmt.Fprint(responseWriter, GetRequestTable(httpRequest))
 }
 ```
