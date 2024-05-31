@@ -31,7 +31,7 @@ Commas are used to separate things.
 
 `Apples, bananas and pears.`
 
-To learn more about commas, please read the [How To Use Commas]({{site.url}}/english/how-to-use-commas) Page.
+To learn more about commas, please read the [How To Use Commas](/english/how-to-use-commas) Page.
 
 ## Semicolons
 Semicolons are used to link to clauses.
