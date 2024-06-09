@@ -136,9 +136,11 @@ function parse_template(string $templateString="", array $data=[], bool $encodeH
 
 ## Read Template
 
-This function reads a template from the "templates" directory and returns it as a string.
+This function reads a template file from the "templates" directory and returns an array containing the "data" and "error" variables.
 
-If there is an error this is returned to the calling function.
+If sucessful then the "data" variable will contain the data from the template file as a string.
+
+If an error occurs then the "error" variable will contiain the error as a string.
 
 ```php
 function read_template(string $templateName="") : array
@@ -159,6 +161,7 @@ function read_template(string $templateName="") : array
     return [$data, ""];
 }
 ```
+
 ##  Javascript
 
 HTMX does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
