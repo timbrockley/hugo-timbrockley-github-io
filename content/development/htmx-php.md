@@ -52,19 +52,19 @@ function main_html() : void
 {
     global $title;
 
-    [$mainTemplateString, $err] = read_template("main");
+    [$mainTemplateString, $error] = read_template("main");
 
-    if($err !== "")
+    if($error !== "")
     {
-        echo $err;
+        echo $error;
     }
     else
     {
-        [$requestTableTemplateString, $err] = read_template("request-table");
+        [$requestTableTemplateString, $error] = read_template("request-table");
 
-        if($err !== "")
+        if($error !== "")
         {
-            $requestTableTemplateString = $err;
+            $requestTableTemplateString = $error;
         }
         else
         {
@@ -95,11 +95,11 @@ The template only outputs the required HTML to be injected into an existing "tab
 ```php
 function table_html() : void
 {
-    [$requestTableTemplateString, $err] = read_template("request-table");
+    [$requestTableTemplateString, $error] = read_template("request-table");
 
-    if($err !== "")
+    if($error !== "")
     {
-        $requestTableTemplateString = $err;
+        $requestTableTemplateString = $error;
     }
     else
     {
