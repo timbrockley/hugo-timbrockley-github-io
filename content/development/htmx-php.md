@@ -121,7 +121,7 @@ function parse_template(string $templateString="", array $data=[], bool $encodeH
 {
     if(!is_string($templateString) || $templateString === ""){ return ""; }
 
-    if(isset($data) && ( !is_array($data) || count($data) ) === 0){ return ""; }
+    if(isset($data) && ( !is_array($data) || count($data) === 0 ) ){ $data = []; }
 
     foreach($data as $key => $value)
     {
