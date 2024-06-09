@@ -273,6 +273,6 @@ button
 
 ## Further Reading
 
-More information about about HTMX can be found in the [HTMX Website](https://htmx.org/).
+More information about about HTMX can be found on the [HTMX Website](https://htmx.org/).
 
 More information about the [net/http](https://pkg.go.dev/net/http), [html/template](https://pkg.go.dev/html/template) and other packages can be found on the [Go Website](https://golang.org/).
