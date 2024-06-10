@@ -90,7 +90,7 @@ func main() {
 }
 ```
 
-##  DefaultHandler
+## DefaultHandler
 
 This function is the default handler. It sets the Content-Type HTTP Header then gets the content of the Request Table as a string to embed in the Main template. The ParseTemplate function is called to generate the template in the returned string. The last line outputs the string containing the generated HTML.
 
@@ -122,7 +122,7 @@ func JSHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 }
 ```
 
-##  RequestTableHandler
+## RequestTableHandler
 
 This function calls the GetRequestTable functions that returns the Request Table template in the returned string which includes the Request Method and any HTMX headers that are received.
 
@@ -196,7 +196,7 @@ func ParseTemplate(templateName string, Data ...map[string]any) string {
 }
 ```
 
-##  Javascript
+## Javascript
 
 HTMX does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
 

@@ -84,7 +84,7 @@ function main_html() : void
 }
 ```
 
-##  Table HTML Template
+## Request Table HTML Template
 
 This function parses the "request-table" template. The HTTP Request Method is injected into the template before being output.
 
@@ -162,7 +162,7 @@ function read_template(string $templateName="") : array
 }
 ```
 
-##  Javascript
+## Javascript
 
 HTMX does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
 
