@@ -67,7 +67,7 @@ func main() {
 }
 ```
 
-##  RouteHandler
+## RouteHandler
 
 This function outputs html with two buttons. Each button makes a request with different Path Values.
 
