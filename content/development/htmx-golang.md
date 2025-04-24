@@ -4,12 +4,18 @@ title: "HTMX + Go"
 description: "Basic HTMX Application using Go 1.22 with net/http and html/template."
 date: 2024-04-20
 image: "/images/development/htmx-golang/htmx_golang_200x200.png"
-categories: ["development", "htmx", "go"]
-tags: ["htmx", "golang", "go", "template", "templates", "templating"]
+categories: ["development", "htmx", "go", "programming"]
+tags: ["htmx", "go", "golang", "template", "templates", "templating"]
 ---
-Basic HTMX Application using Go 1.22 with the [net/http](https://pkg.go.dev/net/http) package to create a simple HTTP Server and the [html/template](https://pkg.go.dev/html/template) package to generate basic templates.
 
-This post is intended for developers who have a basic knowledge of HTML and Go. It serves purely as an example for educational purposes only and it should not be used in production.
+Basic HTMX Application using Go 1.22 with the
+[net/http](https://pkg.go.dev/net/http) package to create a simple HTTP Server
+and the [html/template](https://pkg.go.dev/html/template) package to generate
+basic templates.
+
+This post is intended for developers who have a basic knowledge of HTML and Go.
+It serves purely as an example for educational purposes only and it should not
+be used in production.
 
 ## Package Name and Imports
 
@@ -49,7 +55,8 @@ const contentTypeJavascript string = "application/javascript; charset=UTF-8"
 
 ## Main Function
 
-This function sets up the HTTP Server and uses signals to close down the server if CTRL + C is pressed in the terminal window.
+This function sets up the HTTP Server and uses signals to close down the server
+if CTRL + C is pressed in the terminal window.
 
 ```go
 func main() {
@@ -92,7 +99,10 @@ func main() {
 
 ## DefaultHandler
 
-This function is the default handler. It sets the Content-Type HTTP Header then gets the content of the Request Table as a string to embed in the Main template. The ParseTemplate function is called to generate the template in the returned string. The last line outputs the string containing the generated HTML.
+This function is the default handler. It sets the Content-Type HTTP Header then
+gets the content of the Request Table as a string to embed in the Main template.
+The ParseTemplate function is called to generate the template in the returned
+string. The last line outputs the string containing the generated HTML.
 
 ```go
 func DefaultHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
@@ -108,10 +118,11 @@ func DefaultHandler(responseWriter http.ResponseWriter, httpRequest *http.Reques
 }
 ```
 
-
 ## JSHandler
 
-This functions sets the correct HTTP Header in order the serve the files in the javascript directory. This is important as the browser may not run the javascript code if this is not done.
+This functions sets the correct HTTP Header in order the serve the files in the
+javascript directory. This is important as the browser may not run the
+javascript code if this is not done.
 
 ```go
 func JSHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
@@ -124,7 +135,9 @@ func JSHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
 
 ## RequestTableHandler
 
-This function calls the GetRequestTable functions that returns the Request Table template in the returned string which includes the Request Method and any HTMX headers that are received.
+This function calls the GetRequestTable functions that returns the Request Table
+template in the returned string which includes the Request Method and any HTMX
+headers that are received.
 
 ```go
 func RequestTableHandler(responseWriter http.ResponseWriter, httpRequest *http.Request) {
@@ -137,7 +150,8 @@ func RequestTableHandler(responseWriter http.ResponseWriter, httpRequest *http.R
 
 ## GetRequestTable
 
-This function calls the ParseTemplate function which generates the Request Table template as a string and then returns it to the calling function.
+This function calls the ParseTemplate function which generates the Request Table
+template as a string and then returns it to the calling function.
 
 ```go
 func GetRequestTable(httpRequest *http.Request) string {
@@ -153,9 +167,20 @@ func GetRequestTable(httpRequest *http.Request) string {
 
 ## ParseTemplate
 
-This function generates a template as a string using the templateName parameter and Data parameter if passed. It uses the [html/template](https://pkg.go.dev/html/template) package to do this. It includes two helper functions: "hasPrefix," which is used in the Request Table template to filter HTMX Headers preceded by 'Hx', and "rawHTML," which is used in the Main template to output HTML without being escaped. The templates are read from the "templates" directory.
+This function generates a template as a string using the templateName parameter
+and Data parameter if passed. It uses the
+[html/template](https://pkg.go.dev/html/template) package to do this. It
+includes two helper functions: "hasPrefix," which is used in the Request Table
+template to filter HTMX Headers preceded by 'Hx', and "rawHTML," which is used
+in the Main template to output HTML without being escaped. The templates are
+read from the "templates" directory.
 
-Any generated errors are deliberately included in the returned string for simplicity as this is a proof of concept example and because, in this specific use case, the errors would be output straight to the display anyway. In a production application or even something more permanent you should probably return errors as a separate return parameter to be dealt with accordingly by the calling function.
+Any generated errors are deliberately included in the returned string for
+simplicity as this is a proof of concept example and because, in this specific
+use case, the errors would be output straight to the display anyway. In a
+production application or even something more permanent you should probably
+return errors as a separate return parameter to be dealt with accordingly by the
+calling function.
 
 ```go
 func ParseTemplate(templateName string, Data ...map[string]any) string {
@@ -198,9 +223,12 @@ func ParseTemplate(templateName string, Data ...map[string]any) string {
 
 ## Javascript
 
-HTMX does use javascript which still needs to be enabled in the browser but you do not have write any javascript code yourself in order to use it. Instead, tag attributes are embedded in your HTML code to define the requests to the server."
+HTMX does use javascript which still needs to be enabled in the browser but you
+do not have write any javascript code yourself in order to use it. Instead, tag
+attributes are embedded in your HTML code to define the requests to the server."
 
-This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js) downloaded and saved in the "javascript" directory.
+This application uses [HTMX version 1.9.9](/javascript/htmx199.min.js)
+downloaded and saved in the "javascript" directory.
 
 ## Templates
 
@@ -211,68 +239,92 @@ The following templates saved in the "templates" directory are used.
 ```html
 <!DOCTYPE html>
 <html lang="en-GB">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
+		<title>{{.title}}</title>
 
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="javascript/htmx199.min.js"></script>
 
-<title>{{.title}}</title>
+		<style>
+			body {
+				background-color: #ddd;
+				font-family: monospace;
+				font-size: large;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			th, td {
+				border: 1px solid black;
+				padding: 8px;
+				background-color: #eee;
+				text-align: left;
+			}
+			button {
+				display: inline-block;
+				background-color: #ccc;
+				color: black;
+				padding: 4px;
+				text-align: center;
+				text-decoration: none;
+				border: 1px solid black;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
 
-<script src="javascript/htmx199.min.js"></script>
+	<body>
+		<h3>{{.title}}</h3>
 
-<style>
-body { background-color: #DDD; font-family: monospace; font-size: large; }
-table { border-collapse: collapse; border-spacing: 0; }
-th, td { border: 1px solid black; padding: 8px; background-color: #EEE; text-align: left; }
-button
-{
-    display: inline-block;
-    background-color: #CCC;
-    color: black;
-    padding: 4px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-</style>
+		<button hx-get="/request-table" hx-target="#requestTable">get</button>
+		<button hx-post="/request-table" hx-target="#requestTable">post</button>
+		<button hx-put="/request-table" hx-target="#requestTable">put</button>
+		<button hx-patch="/request-table" hx-target="#requestTable">
+			patch
+		</button>
+		<button hx-delete="/request-table" hx-target="#requestTable">
+			delete
+		</button>
 
-</head>
+		<br>
+		<br>
 
-<body>
-
-<h3>{{.title}}</h3>
-
-<button hx-get="/request-table" hx-target="#requestTable">get</button>
-<button hx-post="/request-table" hx-target="#requestTable">post</button>
-<button hx-put="/request-table" hx-target="#requestTable">put</button>
-<button hx-patch="/request-table" hx-target="#requestTable">patch</button>
-<button hx-delete="/request-table" hx-target="#requestTable">delete</button>
-
-<br><br>
-
-<table id="requestTable">{{- if .requestTable -}}{{ rawHTML .requestTable }}{{- end -}}</table>
-
-</body>
+		<table id="requestTable">
+			{{- if .requestTable -}}{{ rawHTML .requestTable }}{{- end -}}
+		</table>
+	</body>
 </html>
 ```
 
 ### request-table.html
 
 ```html
-<tr><th>Name</th><th>Value</th></tr>
-<tr><td>Request Method</td><td>{{.requestMethod}}</td></tr>
-{{- range $headerName, $headerValue := .httpHeader -}}
-    {{- if hasPrefix $headerName "Hx" -}}
-        <tr><td>{{$headerName}}</td><td>{{index $headerValue 0}}</td></tr>
-    {{- end -}}
-{{- end -}}
+<tr>
+	<th>Name</th>
+	<th>Value</th>
+</tr>
+<tr>
+	<td>Request Method</td>
+	<td>{{.requestMethod}}</td>
+</tr>
+{{- range $headerName, $headerValue := .httpHeader -}} {{- if hasPrefix
+$headerName "Hx" -}}
+<tr>
+	<td>{{$headerName}}</td>
+	<td>{{index $headerValue 0}}</td>
+</tr>
+{{- end -}} {{- end -}}
 ```
 
 ## Further Reading
 
-More information about about HTMX can be found on the [HTMX Website](https://htmx.org/).
+More information about about HTMX can be found on the
+[HTMX Website](https://htmx.org/).
 
-More information about the [net/http](https://pkg.go.dev/net/http), [html/template](https://pkg.go.dev/html/template) and other packages can be found on the [Go Website](https://golang.org/).
+More information about the [net/http](https://pkg.go.dev/net/http),
+[html/template](https://pkg.go.dev/html/template) and other packages can be
+found on the [Go Website](https://golang.org/).
